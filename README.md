@@ -1,115 +1,57 @@
-# MuleTrace
+# MuleTrace 🔍🛡️
 
 > **Autonomous Money-Mule & Layering Ring Detection System**  
 > *Engineered for high-velocity AML investigations, explainable forensic intelligence, and real-time capital preservation.*
 
----
-
-## Architecture Overview
-
-```mermaid
-flowchart TD
-    subgraph Data["1. Synthetic Data & Ingestion"]
-        ACC["accounts.csv"] --> ING["backend/ingest.py"]
-        TXN["transactions.csv"] --> ING
-        ING --> FG["FinancialGraph (MultiDiGraph + Time Index)"]
-    end
-
-    subgraph Detectors["2. Multi-Pattern Detection Engine"]
-        FG --> DET_FAN["FanInOutDetector (Sliding Window Funnel)"]
-        FG --> DET_PASS["PassthroughDetector (DFS Multi-Hop Layering)"]
-        FG --> DET_CYC["CycleDetector (Bounded 3-5 Account Wash Loops)"]
-        FG --> DET_SYB["SybilDetector (Weighted Hardware & Identity Linkage)"]
-    end
-
-    subgraph Intelligence["3. Forensic Intelligence & Forensics"]
-        DET_FAN & DET_PASS & DET_CYC & DET_SYB --> SCORER["RiskScorer & Signals (0-100 Auditable Points)"]
-        SCORER --> EXP["Reasons & Counterfactuals (Rule 3 & 6 Compliant)"]
-        FG --> TAINT["TaintTracker (Chronological Haircut Propagation)"]
-        TAINT --> CHASE["Chase List & Freeze Simulator (Rule 8 Compliant)"]
-        DET_FAN & DET_PASS & DET_CYC & DET_SYB --> RDNA["RingDNAEngine (6D Vector + Cosine Similarity)"]
-        ACC --> DZ["DayZeroEarlyWarning (Pre-Transaction Hardware Scanner)"]
-    end
-
-    subgraph Presentation["4. Reactive UI & Investigation Workspace"]
-        SCORER & EXP & TAINT & CHASE & RDNA & DZ --> API["FastAPI REST Service (localhost:8000)"]
-        API --> FE["React 18 + Vite + Zustand Frontend (localhost:5173)"]
-        FE --> UI_GRAPH["Interactive Cytoscape Canvas (Role Shapes & 150 Cap)"]
-        FE --> UI_QUEUE["Alert Queue (J/K Browsing & Multi-Filters)"]
-        FE --> UI_DRAWER["Account Dossier Drawer & Active Feedback"]
-        FE --> UI_SCRUB["Timeline Scrubber (Temporal Replay)"]
-        FE --> UI_SAR["Printable Regulatory SAR Dossier (Rule 7 Compliant)"]
-        FE --> UI_LAB["Forensic Lab & Ground Truth Verification (Rule 5)"]
-    end
-```
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://python.org)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.110%2B-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)](https://react.dev)
+[![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
+[![NetworkX](https://img.shields.io/badge/NetworkX-3.2-blueviolet)](https://networkx.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
-## Key Features
-
-1. **4 Analytical Pattern Detectors**:
-   - **Fan-In / Fan-Out Hubs**: Catches high-velocity collection and dispersal while protecting legitimate merchants and payroll.
-   - **Pass-Through Layering Chains**: DFS algorithm identifying multi-hop relays ($\ge 3$ hops, $\le 8$m gap, $\ge 85\%$ forward ratio).
-   - **Circular Wash Loops**: Bounded chronological cycle detection ($3 \le k \le 5$, duration $\le 45$m) eliminating 2-party friend split false positives.
-   - **Weighted Sybil Clusters**: Multi-attribute linkage (device, PAN hash, phone, IP) with safeguards against campus Wi-Fi and family tablets.
-
-2. **100% Explainable Threat Scoring & Counterfactuals**:
-   - Transparent point accounting: Base Points + Secondary Pattern Bonuses + Velocity Bonuses - Dampeners.
-   - Separate Confidence Meter (High, Medium, Low) based on empirical corroboration.
-   - Automated Counterfactuals (Rule 3): Explicitly tells analysts what behavioral change clears the account.
-   - Innocent Victim Protection: Victims receive 0 risk score and protective calm-blue classification.
-
-3. **Haircut Taint Tracing & Real-Time Freeze Simulation**:
-   - Chronological proportional haircut taint propagation maintaining mathematical conservation laws.
-   - Capital Recovery Decay Curve ($t = 0, 5, 10, 15, 30, 60$ minutes) proving money saved by early intervention.
-   - Prioritized Interdiction Queue (Chase List) with one-click clipboard copying for bank fraud operations.
-
-4. **6D Ring DNA & AML Typology Matching**:
-   - Extracts a normalized 6-dimensional fingerprint vector representing structure, size, duration, hop gap, retention, and drain rate.
-   - Cosine similarity matching against an AML typology library (Crypto Funnels, ATM Chains, Wash Rings, Synthetic Clusters).
-   - Generates an executive 3-paragraph plain-language narrative.
-
-5. **Gated Active Learning & Day-Zero Early Warnings**:
-   - Human analyst decisions (`confirmed_mule` / `cleared_benign`) feed a regularized model gated behind $\ge 10$ labels.
-   - Pre-transaction scanner flags newly opened account clusters sharing emulator devices before funds move.
-
-6. **Interactive Cytoscape.js Workspace**:
-   - Geometric role shapes: **Hexagon** (Hub), **Rectangle** (Relay), **Diamond** (Exit), **Rhombus** (Victim), **Ellipse** (Member).
-   - Edge thickness scaled logarithmically by transfer amount, with red lines indicating tainted flow.
-   - Strict 150-node safety cap for guaranteed 60fps responsiveness.
-
-7. **Universal Command Palette & Keyboard Accessibility**:
-   - `Ctrl+K`: Universal search across accounts, syndicates, presets, and actions.
-   - Single-key accelerators: `J`/`K` (Alert Queue), `1`/`2`/`3` (Presets), `P` (Presenter Mode), `T` (Themes), `Space` (Replay), `Esc` (Close), `?` (Cheat Sheet).
-   - 4 native themes: Dark Cyber-Defense, Calm Slate, Paper Light, and High-Contrast Colorblind.
+## 📑 Table of Contents
+- [1. Project Overview](#1-project-overview)
+- [2. Setup & Installation Instructions](#2-setup--installation-instructions)
+- [3. Key Features](#3-key-features)
+- [4. Technology Stack](#4-technology-stack)
+- [5. Architecture & Workflow](#5-architecture--workflow)
+- [6. Dataset & API Information](#6-dataset--api-information)
+- [7. Screenshots & Demo Information](#7-screenshots--demo-information)
+- [8. Limitations & Future Scope](#8-limitations--future-scope)
+- [9. Team Members](#9-team-members)
+- [10. Compliance & Ethical Disclaimers](#10-compliance--ethical-disclaimers)
 
 ---
 
-## 10 Core Invariants & Tenets
+## 1. Project Overview
 
-| Tenet | Rule Description | Enforcement in MuleTrace |
-| :--- | :--- | :--- |
-| **Rule 1** | **Synthetic Data Only** | Zero real PII; synthetic KYC hashes; reproducible seed generation. |
-| **Rule 2** | **No Hidden Magic** | Zero hardcoded detection thresholds; all configured in `backend/config/thresholds.yaml`. |
-| **Rule 3** | **Explainability First** | Every score includes score, band, confidence, breakdown, reason, and counterfactual. |
-| **Rule 4** | **Never Invent Results** | Zero uncomputed metrics; every chart and KPI is strictly derived from live data. |
-| **Rule 5** | **Ground Truth Isolation** | `ground_truth.csv` is strictly isolated for evaluation; detectors never access it. |
-| **Rule 6** | **Analyst Language** | Non-technical explanations use banking terms (*account, transfer, connected account, path*) — never graph jargon. |
-| **Rule 7** | **Synthetic Disclaimer** | Every export, SAR dossier, and report bears: *"Synthetic demonstration data. Not a real case."* |
-| **Rule 8** | **Saved Money Disclaimer** | Every freeze calculation displays: *"Estimated amount saved: ₹X"*. |
-| **Rule 9** | **Never Weaken Tests** | No disabling tests; threshold changes documented in `DECISIONS.md`. |
-| **Rule 10** | **Zero External Dependencies**| Runs 100% offline on localhost; zero external cloud or LLM dependencies. |
+Digital payment rails (such as UPI, IMPS, Pix, and SEPA Instant) process millions of transactions per minute with instant settlement. While revolutionary for commerce, this speed has been aggressively exploited by organized financial crime syndicates using **distributed money-mule networks**. Fraudulent proceeds are systematically dispersed across hundreds of intermediary accounts within seconds through multi-hop layering chains, fan-out disbursement funnels, circular wash loops, and synthetic identities (sybils).
+
+**MuleTrace** is an autonomous, explainable graph analytics and forensic intelligence platform engineered to detect, visualize, and interdict money-mule rings in real time.
+
+### Core Objectives & Value Proposition
+- **High-Velocity Detection**: Identifies complex laundering topologies across thousands of transactions in sub-second latency.
+- **100% Explainable Scoring**: Every flagged account includes transparent point-based threat accounting, forensic evidence, and **automated counterfactual explanations** detailing exact actions that clear the account.
+- **Dynamic Capital Preservation**: Mathematically rigorous haircut taint propagation calculates capital recovery decay curves ($t = 0, 5, 10, 15, 30, 60$ minutes), generating prioritized interdiction lists (Chase Lists) to freeze funds before final off-ramp dissipation.
+- **Privacy-Preserving & 100% Offline**: Zero external LLM or cloud dependencies. Runs entirely on local infrastructure with synthetic data isolation.
 
 ---
 
-## Quickstart & Installation
+## 2. Setup & Installation Instructions
 
 ### Prerequisites
-- Python 3.10+ (tested on Python 3.14)
-- Node.js 18+ and npm (tested on Node v24)
+- **Python**: Version `3.10` or higher (tested on Python 3.10 – 3.14).
+- **Node.js**: Version `18.x` or higher and `npm` (tested on Node v20/v24).
+- **Git**: Latest version for version control.
 
-### Automated Launchers
-Start both backend and frontend concurrently with a single command:
+---
+
+### Quickstart (Single-Command Automated Launchers)
+
+MuleTrace includes cross-platform launcher scripts that start the backend and frontend services concurrently:
 
 - **Windows (PowerShell)**:
   ```powershell
@@ -125,139 +67,262 @@ Start both backend and frontend concurrently with a single command:
   ./run.sh
   ```
 
-### Manual Setup
-
-1. **Backend Setup**:
-   ```bash
-   # From project root
-   python -m venv .venv
-   # Windows: .venv\Scripts\activate | macOS/Linux: source .venv/bin/activate
-   pip install -r requirements.txt
-   uvicorn backend.api:app --host 127.0.0.1 --port 8000 --reload
-   ```
-
-2. **Frontend Setup**:
-   ```bash
-   cd frontend
-   npm install
-   npm run dev
-   ```
-
-The application will be live at:
-- **Frontend UI**: [http://localhost:5173](http://localhost:5173)
-- **Backend API Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
+Once started, access the interfaces at:
+- **Interactive Web Dashboard**: [http://localhost:5173](http://localhost:5173) (or `http://localhost:8000` when running production static build)
+- **Interactive Swagger REST API Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ---
 
-## Verification & Testing
+### Manual Step-by-Step Installation
 
-### Complete Unit & Integration Test Suite
-Execute all 27 backend tests verifying scaffolding, dataset generation, validation, pattern detection, scoring, taint tracing, APIs, and ground truth isolation:
+#### Step 1: Clone Repository
 ```bash
-python -m pytest backend/tests/ -v
+git clone https://github.com/<your-username>/muletrace-5.git
+cd muletrace-5
 ```
 
-### High-Performance Benchmark Suite
-Verify real-time execution speeds against sub-second performance budgets:
+#### Step 2: Backend Setup
 ```bash
+# 1. Create and activate a Python virtual environment
+python -m venv .venv
+
+# On Windows:
+.venv\Scripts\activate
+# On macOS / Linux:
+source .venv/bin/activate
+
+# 2. Install Python dependencies
+pip install -r requirements.txt
+
+# 3. Start the FastAPI backend server
+uvicorn backend.api:app --host 127.0.0.1 --port 8000 --reload
+```
+
+#### Step 3: Frontend Setup
+```bash
+# 1. Open a new terminal and navigate to frontend directory
+cd frontend
+
+# 2. Install Node dependencies
+npm install
+
+# 3. Launch Vite development server
+npm run dev
+
+# (Optional) Build production static assets served directly by FastAPI
+npm run build
+```
+
+---
+
+### Verification & Testing Suite
+
+Verify the system integrity and benchmark performance with the included test suites:
+
+```bash
+# Run all 27 unit & integration tests (pattern detectors, scoring, taint, APIs)
+python -m pytest backend/tests/ -v
+
+# Run high-performance benchmark suite
 python backend/evaluation/bench.py
 ```
 
-*Benchmark Results (810 Accounts, 10,322 Transactions):*
-- Ingestion & Graph Construction: **2.63s** (budget < 3.0s)
-- 4-Detector Pipeline Execution: **310ms** (budget < 1.0s)
-- Behavioral Signals & Scoring: **102ms** (budget < 1.0s)
-- 150-Node Subgraph BFS Extraction: **0.11ms** (budget < 300ms)
-- Taint Propagation & Freeze Curve: **50.68ms** (budget < 200ms)
+*Benchmark Performance (810 Accounts, 10,322 Transactions):*
+- Ingestion & Graph Indexing: **2.63s** (Budget < 3.0s)
+- 4-Detector Pattern Execution: **310ms** (Budget < 1.0s)
+- Scoring & Counterfactuals: **102ms** (Budget < 1.0s)
+- BFS 150-Node Subgraph Extraction: **0.11ms** (Budget < 300ms)
+- Taint Propagation & Freeze Curve: **50.68ms** (Budget < 200ms)
 
 ---
 
-## Project Structure
+## 3. Key Features
 
+### 1. 4-Detector Analytical Engine
+- **Fan-In / Fan-Out Funnels**: Detects rapid fund aggregation followed by split dispersion while strictly protecting legitimate merchant, e-commerce, and payroll aggregators.
+- **Pass-Through Layering Chains**: Depth-First Search (DFS) tracking multi-hop relays ($\ge 3$ hops, $\le 8$ min inter-hop latency, $\ge 85\%$ forwarding drain ratio).
+- **Circular Wash Loops**: Chronologically bounded cycle detection ($3 \le k \le 5$ accounts, duration $\le 45$ min) eliminating false-positive 2-party peer transfers.
+- **Weighted Sybil Clusters**: Multi-attribute identity graph linkage across shared device IDs, MAC addresses, PAN hashes, phone numbers, and IP subnets.
+
+### 2. 100% Explainable Threat Scoring & Counterfactuals
+- **Zero Black Boxes**: Clear breakdown showing Base Pattern Points + Secondary Bonuses + Turnover Velocity - Dampeners.
+- **Dual Signal Assurance**: Separate risk score ($0-100$) and empirical Confidence Rating (High, Medium, Low).
+- **Automated Counterfactuals**: Provides exact mathematical guidance on behavioral shifts that would clear the account classification.
+- **Innocent Victim Protection Invariant**: Distinguishes victims from collusive mules; victims are assigned a zero risk score and protected with calm-blue status.
+
+### 3. Haircut Taint Tracking & Freeze Simulation
+- **Proportional Haircut Conservation**: Tracks the flow of stolen capital across downstream transactions adhering to financial mass conservation laws.
+- **Real-Time Capital Recovery Curve**: Simulates estimated funds saved at intervention intervals ($t = 0, 5, 10, 15, 30, 60$ minutes).
+- **Actionable Chase List**: Generates a ranked interdiction queue with one-click clipboard export for banking fraud operations.
+
+### 4. 6D Ring DNA & AML Typology Matching
+- Normalized 6-dimensional vector fingerprinting (Network Density, Member Count, Total Duration, Avg Hop Latency, Balance Retention Ratio, Drain Rate).
+- Cosine similarity matching against an AML typology knowledge base (ATM Dispersion, Crypto Off-Ramp Funnels, Circular Wash Rings, Layered Relays).
+- Automatically composes executive 3-paragraph plain-language intelligence narratives.
+
+### 5. Interactive Forensic Workspace & Scrubber
+- **Interactive Cytoscape Canvas**: Custom geometric role shapes: **Hexagon** (Hub), **Rectangle** (Relay), **Diamond** (Exit/Cash-out), **Rhombus** (Victim), and **Circle** (Member).
+- **Logarithmic Edge Weighting**: Transaction volume scales edge thickness; crimson traces highlight active tainted flows.
+- **Temporal Flow Scrubber**: Interactive timeline bar with play, pause, frame step, and toggle close to replay money movements as they unfolded over time.
+- **Regulatory SAR Generator**: One-click generation of printable, audit-compliant Suspicious Activity Report (SAR) dossiers.
+
+### 6. Universal Command Palette & Accessibility
+- `Ctrl + K`: Universal search across accounts, rings, typology presets, and actions.
+- Keyboard navigation accelerators: `J` / `K` (Alert Queue), `Space` (Replay Play/Pause), `Esc` (Dismiss/Close), `?` (Keyboard Cheat Sheet).
+
+---
+
+## 4. Technology Stack
+
+| Layer | Technologies | Purpose |
+| :--- | :--- | :--- |
+| **Frontend Framework** | React 18, Vite | High-performance reactive Single Page Application (SPA) |
+| **State Management** | Zustand | Predictable, lightweight client-side state store |
+| **Graph Visualization** | Cytoscape.js | High-performance canvas network rendering with layout engines |
+| **Icons & Design** | Lucide React, Custom CSS Tokens | Modern cybersecurity aesthetic, dark purple palette, high contrast |
+| **Backend REST API** | FastAPI, Uvicorn, Pydantic | Asynchronous Python REST backend with automatic OpenAPI schema |
+| **Graph & Math Engine** | NetworkX, NumPy, SciPy | Temporal MultiDiGraph indexing, matrix eigendecomposition, optimization |
+| **Config & Rules** | PyYAML | Externalized detection thresholds (`backend/config/thresholds.yaml`) |
+| **Testing & Tooling** | Pytest, Playwright | Comprehensive unit, integration, and end-to-end browser tests |
+
+---
+
+## 5. Architecture & Workflow
+
+```mermaid
+flowchart TD
+    subgraph DataLayer["1. Ingestion & Temporal Indexing"]
+        A1["accounts.csv"] --> ING["backend/ingest.py"]
+        A2["transactions.csv"] --> ING
+        ING --> FG["FinancialGraph (NetworkX MultiDiGraph)"]
+    end
+
+    subgraph Detectors["2. Analytical Detection Pipeline"]
+        FG --> D1["FanInOutDetector (Sliding Window Funnel)"]
+        FG --> D2["PassthroughDetector (DFS Multi-Hop Chains)"]
+        FG --> D3["CycleDetector (Bounded 3-5 Account Loops)"]
+        FG --> D4["SybilDetector (Multi-Entity Linkage)"]
+    end
+
+    subgraph Intelligence["3. Forensic Intelligence & Forensics"]
+        D1 & D2 & D3 & D4 --> SCORER["RiskScorer & Signal Engine (0-100 Pts)"]
+        SCORER --> EXP["Reasoning & Counterfactual Engine"]
+        FG --> TAINT["TaintTracker (Haircut Flow Conservation)"]
+        TAINT --> CHASE["Chase List & Freeze Curve Simulation"]
+        D1 & D2 & D3 & D4 --> RDNA["RingDNAEngine (6D Cosine Similarity)"]
+        A1 --> DZ["DayZeroScanner (Pre-Transaction Hardware Sharing)"]
+    end
+
+    subgraph Delivery["4. User Interface & Export"]
+        SCORER & EXP & TAINT & CHASE & RDNA & DZ --> API["FastAPI REST Service (Port 8000)"]
+        API --> UI["React 18 + Cytoscape Workspace (Port 5173)"]
+        UI --> M1["Cytoscape Network Canvas"]
+        UI --> M2["Account Dossier & Explainability Drawer"]
+        UI --> M3["Temporal Replay Scrubber Bar"]
+        UI --> M4["Regulatory Printable SAR Dossier"]
+    end
 ```
-muletrace/
-├── backend/
-│   ├── config/
-│   │   └── thresholds.yaml         # Presets (relaxed, balanced, strict) & scoring points
-│   ├── detectors/
-│   │   ├── fan_in_out.py           # Sliding-window funnel detector
-│   │   ├── passthrough.py          # DFS multi-hop layering chain detector
-│   │   ├── cycles.py               # Bounded 3-5 account wash cycle detector
-│   │   └── sybil.py                # Multi-attribute identity linkage detector
-│   ├── evaluation/
-│   │   └── bench.py                # Performance benchmark runner
-│   ├── tests/                      # 27 comprehensive pytest test suites
-│   ├── api.py                      # FastAPI REST endpoints
-│   ├── chase.py                    # Chase List & Freeze Curve simulation
-│   ├── fraud_engine.py             # Analytical orchestrator
-│   ├── graph.py                    # Indexed FinancialGraph NetworkX multigraph
-│   ├── ingest.py                   # CSV loader and account summaries
-│   ├── learning.py                 # Active learning loop & Day-Zero warnings
-│   ├── quantum/                    # MuleTrace Ω: Quantum-inspired simulation layer
-│   │   ├── qwalk.py                # Continuous-Time Quantum Walk & Classical Laplacian
-│   │   ├── interdiction.py         # QUBO simulated annealing network interdiction
-│   │   └── ringstate.py            # Ring DNA quantum state fidelity
-│   ├── reasons.py                  # Plain-language justifications & counterfactuals
-│   ├── ringdna.py                  # 6D Ring DNA vector & typology matcher
-│   ├── scoring.py                  # Explainable composite threat scoring
-│   ├── signals.py                  # Velocity and turnover feature extraction
-│   └── store.py                    # In-memory session state & SAR generator
-├── data/
-│   ├── demo/                       # Synthetic demonstration dataset (810 accs, 10k txns)
-│   ├── make_data.py                # Reproducible synthetic generator (--seed 42)
-│   └── validate_dataset.py         # Schema, integrity, and temporal validator
-├── frontend/
-│   ├── src/
-│   │   ├── components/             # AlertQueue, GraphCanvas, InspectorDrawer, etc.
-│   │   ├── screens/                # RingsScreen, LabScreen, OmegaScreen
-│   │   ├── store/                  # useMuleStore.js (Zustand state store)
-│   │   ├── styles/                 # tokens.css (4 themes & design tokens)
-│   │   ├── App.jsx                 # Screen router, keyboard handlers
-│   │   └── main.jsx                # React DOM entrypoint
-│   ├── package.json
-│   └── vite.config.js
-├── docs/
-│   ├── demo_script.md              # Stage pitch presentation script (with 90s Ω segment)
-│   ├── pitch.md                    # Slide-by-slide deck & problem statement
-│   └── qa.md                       # Anticipated judge questions & technical answers
-├── DECISIONS.md                    # Complete chronological architectural decisions log
-├── HOW_IT_WORKS.md                 # Detailed forensic methodology & formulas
-├── SPEC.md                         # Complete project specification
-├── requirements.txt
-├── run.ps1                         # PowerShell launch script
-├── start.bat                       # Windows batch launch script
-└── run.sh                          # Bash launch script
-```
+
+### End-to-End Investigation Workflow
+1. **Streaming / Batch Ingestion**: Chronological ingestion maps transactions into an in-memory indexed multigraph.
+2. **Autonomous Scanning**: Detectors execute concurrently across sliding temporal windows.
+3. **Forensic Scoring**: Composite threat scores and confidence ratings are calculated, while innocent victims are insulated.
+4. **Interactive Investigation**: Investigators review prioritized alerts, inspect the graph, review counterfactual recommendations, and replay illicit transaction flow histories.
+5. **Actionable Interdiction**: The system outputs an optimized interdiction sequence to freeze exit points and generates regulatory-ready SAR dossiers.
 
 ---
 
-## MuleTrace Ω (Omega): Quantum-Inspired Simulation Layer
+## 6. Dataset & API Information
 
-> **Honesty Mandate**: *Simulated on a classical computer. Synthetic demonstration data. Not a real case.*  
-> No hardware quantum speedup is claimed. All metrics are computed live from data.
+### Synthetic Demonstration Dataset
+To guarantee absolute compliance with data privacy standards and banking secrecy laws, MuleTrace operates strictly on synthetic, seed-reproducible demonstration data:
+- **Location**: `data/demo/`
+- **Volume**: **810 Accounts**, **10,322 Transactions**, across 4 syndicate ring typologies.
+- **Generator**: `python data/make_data.py --seed 42`
+- **Integrity Validator**: `python data/validate_dataset.py`
 
-MuleTrace Ω is an exploratory physics-inspired analytical module designed for advanced AML research:
-1. **Continuous-Time Quantum Walk (CTQW)**:
-   - Evaluates probability amplitude propagation $U(t) = V \exp(-i \Lambda t) V^\dagger$ on the ring's symmetric weighted adjacency matrix ($w_{ij} = \log(1 + \text{amount})$).
-   - Solved via exact Hermitian eigendecomposition (`numpy.linalg.eigh`).
-   - Directly benchmarked against classical heat diffusion $p(t) = \exp(-L t) p_0$ with graph Laplacian $L = D - A$. Both methods strictly conserve total probability mass ($1.0 \pm 10^{-9}$).
-   - Predicts top-5 exit cash-out accounts and measures overlap with real exits from taint tracking.
-2. **QUBO Network Interdiction**:
-   - Formulates proactive account freezing as binary quadratic optimization:
-     $$\min_{x} \lambda_1 \sum (1 - x_i) \text{flow}_i + \lambda_2 \sum x_i \text{innocence}_i + \mu \left(\sum x_i - K\right)^2$$
-   - Solved with deterministic simulated annealing (`seed = 42`).
-   - Strictly enforces the **Victim Protection Invariant** ($x_{\text{victim}} \equiv 0$).
-   - Compares estimated funds saved and false-positive collateral against the greedy Chase List.
-3. **Ring DNA Quantum State Fidelity**:
-   - Computes pure state transition fidelity $F(|a\rangle, |b\rangle) = |\langle a | b \rangle|^2$ across detected rings and AML typologies.
-   - For normalized non-negative real feature vectors, state fidelity is mathematically identical to $(\cos \theta)^2$.
-4. **Calm, Back-of-the-Room Stepper UI**:
-   - Accessible 4-step progressive disclosure interface with Cytoscape dual visualization, shared time slider, budget controls, and fidelity heat matrix.
-   - Full support for all 4 themes (including High-Contrast Colorblind) and Presenter Mode (`P` key).
+#### Data Schema Overview
+- `accounts.csv`: `account_id`, `customer_name`, `account_type`, `created_at`, `pan_hash`, `device_id`, `ip_address`, `phone_hash`.
+- `transactions.csv`: `txn_id`, `sender_id`, `receiver_id`, `amount`, `timestamp`, `payment_channel`.
+- `ground_truth.csv`: Benchmark evaluation labels strictly isolated from detectors (`test_ground_truth_isolation.py`).
 
 ---
 
-## Compliance & Legal Disclaimer
+### Core REST API Endpoints
 
-*MuleTrace is a synthetic software demonstration platform developed for educational and academic evaluation. All personal names, account identifiers, PAN hashes, device IDs, and transfer histories are purely synthetic and generated via reproducible pseudorandom algorithms. Not a real banking case. All freeze estimations carry Rule 8 compliance disclaimers.*
+The FastAPI backend exposes fully documented endpoints (Swagger at `http://localhost:8000/docs`):
 
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/api/metrics` | High-level KPI summary (audited entities, flagged mules, rings, volume) |
+| `GET` | `/api/accounts` | Query flagged accounts with filters (severity, ring, confidence) |
+| `GET` | `/api/accounts/{id}` | Detailed account dossier (evidence, score breakdown, counterfactual) |
+| `GET` | `/api/rings` | List detected mule syndicates with 6D Ring DNA and typology matching |
+| `GET` | `/api/rings/{id}` | Full syndicate details, member roles, and executive narrative |
+| `GET` | `/api/graph` | Subgraph extraction for Cytoscape.js with BFS 150-node safety cap |
+| `POST`| `/api/replay` | Fetch chronological transaction frames for temporal replay scrubber |
+| `POST`| `/api/freeze` | Run what-if freeze simulation and generate capital recovery decay curve |
+| `GET` | `/api/sar/{id}` | Generate formal printable Suspicious Activity Report (SAR) |
+| `GET` | `/api/evasion-test` | Ground truth evaluation metrics (Precision, Recall, F1) |
+
+---
+
+## 7. Screenshots & Demo Information
+
+### Visual Interface Showcase
+
+| Screen | Description |
+| :---: | :--- |
+| **Investigation Workspace** | Central command view featuring interactive Cytoscape network canvas, priority Alert Queue, and compact real-time KPI dock. |
+| **Account Dossier** | Comprehensive forensic drawer showing risk breakdown, confidence metrics, rule satisfaction bars, and automated counterfactual text. |
+| **Temporal Flow Scrubber** | Elevated timeline control bar allowing frame-by-frame temporal replay of pass-through transactions with play/pause and click-to-close toggle. |
+| **Simulate Freeze Dialog** | What-if simulation modal providing instant capital recovery projections and prioritized account interdiction. |
+| **Regulatory SAR Dossier** | Audit-ready Suspicious Activity Report with timestamped evidence for compliance filing. |
+
+*(Screenshots can be added to your repository's `/docs/screenshots` directory.)*
+
+### Presentation & Pitch Resources
+- **Stage Presentation Script**: [`docs/demo_script.md`](docs/demo_script.md) (Complete timed script including live stage prompts).
+- **Pitch Deck Outline**: [`docs/pitch.md`](docs/pitch.md) (Slide-by-slide structure, market problem, and competitive edge).
+- **Forensic Methodology**: [`HOW_IT_WORKS.md`](HOW_IT_WORKS.md) (Mathematical formulas and algorithmic derivations).
+- **Technical Q&A**: [`docs/qa.md`](docs/qa.md) (Anticipated evaluation questions and responses).
+
+---
+
+## 8. Limitations & Future Scope
+
+### Current Limitations
+1. **In-Memory Graph Scope**: Currently optimized for single-machine in-memory execution using NetworkX (up to ~100k nodes and transactions with sub-second performance).
+2. **Synthetic Data Calibration**: Default detection thresholds are calibrated against synthetic banking topologies and require domain-specific tuning for live core banking systems.
+3. **Local Standalone Architecture**: Built for offline security environments without integrated distributed database synchronization.
+
+### Future Roadmap & Scope
+- [ ] **Distributed Graph Ingestion**: Scale to billions of daily transactions via Apache Spark GraphX or GPU-accelerated cuGraph.
+- [ ] **Streaming Event Bus Integration**: Native Apache Kafka / AWS Kinesis connectors for microsecond event stream interception.
+- [ ] **Cross-Institutional Ring Sharing**: Privacy-preserving federated learning and cryptographic homomorphic encryption to detect inter-bank mule rings across institutions without sharing raw PII.
+- [ ] **Mobile Biometric Telemetry**: Incorporate behavioral biometrics (gyroscope angle, typing cadence, screen pressure) to detect forced account handover.
+
+---
+
+## 9. Team Members
+
+| Name | Role | Responsibilities | GitHub / Contact |
+| :--- | :--- | :--- | :--- |
+| **Swayam** | Project Lead & Full Stack Architect | System Architecture, Frontend UI/UX, Graph Engineering & Integration | [@Swayam](https://github.com/) |
+| *(Contributor Name)* | Backend / Algorithm Engineer | Analytical Detectors, Taint Propagation, Scoring Logic | |
+| *(Contributor Name)* | Data & ML Specialist | Dataset Synthesis, Verification Benchmarks, Active Learning Loop | |
+| *(Contributor Name)* | Security & Compliance Analyst | AML Typologies, SAR Generation, Regulatory Standards | |
+
+---
+
+## 10. Compliance & Ethical Disclaimers
+
+- **Synthetic Data Guarantee**: All personal names, account identifiers, PAN hashes, device IDs, and transaction histories in this repository are purely synthetic and generated via pseudorandom algorithms (`seed=42`). No real banking or personally identifiable information (PII) is present.
+- **Educational & Prototype Use**: MuleTrace is designed as a software demonstration and research platform for evaluating algorithmic anti-money laundering techniques.
+- **Estimated Calculations**: All "Amount Saved" and "Capital Preserved" figures are simulated estimates derived from taint decay heuristics under test parameters.
+
+---
+
+<div align="center">
+  <sub>Engineered with precision for advanced financial security and anti-money laundering investigations.</sub>
+</div>

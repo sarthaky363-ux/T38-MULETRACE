@@ -1,0 +1,111 @@
+# backend/config/thresholds.yaml
+# Detection and scoring configuration for MuleTrace
+default_preset: balanced
+
+presets:
+  relaxed:
+    fan_in_out:
+      window_min: 60
+      min_senders: 3
+      min_inflow: 50000
+      min_receivers: 1
+      forward_ratio: 0.75
+    passthrough:
+      max_gap_min: 10
+      min_amount_ratio: 0.80
+      max_post_balance: 3000
+      min_chain_accounts: 3
+    cycles:
+      min_len: 3
+      max_len: 6
+      max_duration_min: 60
+      amount_tolerance: 0.30
+    sybil:
+      min_group: 3
+      max_age_days: 45
+      require_second_signal_for_ip: false
+
+  balanced:
+    fan_in_out:
+      window_min: 45
+      min_senders: 4
+      min_inflow: 50000
+      min_receivers: 1
+      forward_ratio: 0.80
+    passthrough:
+      max_gap_min: 8
+      min_amount_ratio: 0.85
+      max_post_balance: 2000
+      min_chain_accounts: 3
+    cycles:
+      min_len: 3
+      max_len: 5
+      max_duration_min: 45
+      amount_tolerance: 0.20
+    sybil:
+      min_group: 3
+      max_age_days: 30
+      require_second_signal_for_ip: true
+
+  strict:
+    fan_in_out:
+      window_min: 30
+      min_senders: 5
+      min_inflow: 100000
+      min_receivers: 3
+      forward_ratio: 0.85
+    passthrough:
+      max_gap_min: 5
+      min_amount_ratio: 0.90
+      max_post_balance: 1000
+      min_chain_accounts: 4
+    cycles:
+      min_len: 3
+      max_len: 5
+      max_duration_min: 30
+      amount_tolerance: 0.10
+    sybil:
+      min_group: 4
+      max_age_days: 20
+      require_second_signal_for_ip: true
+
+scoring:
+  base_points:
+    fan_in_out: 45
+    passthrough: 50
+    cycle: 45
+    sybil: 35
+  bonuses:
+    drain_ratio_90: 15
+    velocity_20min: 10
+    sybil_device_and_pan: 15
+    turnover_gt_50: 10
+    new_account_30d: 5
+    multi_pattern_synergy: 20
+  secondary_pattern_weight: 0.5
+  dampeners:
+    merchant_like: 0.5
+    payroll_like: 0.5
+    long_tenure_kyc: 0.15
+  bands:
+    critical: 70
+    medium: 40
+
+quantum:
+  walk:
+    default_steps: 60
+    max_nodes: 150
+    time_scale: 0.1
+    top_k_exits: 5
+  interdiction:
+    lambda1_flow: 1.0
+    lambda2_innocence: 1.5
+    mu_budget: 2.0
+    annealing:
+      initial_temp: 10.0
+      cooling_rate: 0.95
+      iterations: 500
+      seed: 42
+  ring_fidelity:
+    dimension: 6
+

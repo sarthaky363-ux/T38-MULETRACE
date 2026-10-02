@@ -1,0 +1,1847 @@
+/* ==========================================================================
+   muletrace-skin.css
+   Pure Visual Reskin for MuleTrace — Splunk "System Performance" Target Look
+   Strict Rule: Pure CSS only. Zero DOM or logic changes. Graph visualization intact.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS
+   -------------------------------------------------------------------------- */
+:root {
+  --bg-base: #08070d;
+  --bg-radial: #08070d;
+  --glass: #0b0912;
+  --glass-strong: #0e0c16;
+  --glass-blur: none;
+  --hairline: #221c31;
+  --hairline-strong: #382d52;
+  --text-1: #ffffff;
+  --text-2: #a59bb8;
+  --text-3: #6b627d;
+  --brand: #8b5cf6;
+  --brand-dim: #7c3aed;
+  --brand-light: #c4b5fd;
+  --brand-bg: #161224;
+  --brand-border: #3b2d5a;
+  --warn: #f59e0b;
+  --danger: #ef4444;
+  --info: #8b5cf6;
+  --pill-active-bg: #ffffff;
+  --pill-active-fg: #0d0918;
+  --radius-panel: 16px;
+  --radius-card: 12px;
+  --radius-pill: 999px;
+  --shadow-float: 0 4px 16px rgba(0, 0, 0, 0.45);
+  --glow-brand: none;
+  --glow-danger: none;
+  --glow-warn: none;
+  --glow-critical: none;
+  --glow-flow: none;
+  --font-ui: "Urbanist", "Outfit", "Inter", system-ui, sans-serif;
+  --font-data: "JetBrains Mono", ui-monospace, monospace;
+  --space-xs: 6px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 28px;
+  --motion-fast: 140ms ease;
+  --motion-fade: 200ms ease;
+
+  /* Mule Trace fluid title & layout tokens */
+  --mt-size-sm: 1.25rem;   /* 20px phones <= 480px */
+  --mt-size-md: 1.5rem;    /* 24px tablets */
+  --mt-size-lg: 1.75rem;   /* 28px desktop */
+  --bar-h: 64px;
+
+  /* Map old semantic aliases to target skin */
+  --bg-0: var(--bg-base);
+  --bg-1: var(--glass);
+  --bg-2: var(--glass-strong);
+  --bg-3: #181326;
+  --bg-app: var(--bg-base);
+  --bg-surface: var(--glass);
+  --bg-card: var(--glass-strong);
+  --border: var(--hairline);
+  --border-strong: var(--hairline-strong);
+  --border-subtle: var(--hairline);
+  --text-primary: var(--text-1);
+  --text-secondary: var(--text-2);
+  --text-muted: var(--text-3);
+  --sev-critical: #dc2626;
+  --sev-critical-bg: #dc2626;
+  --sev-medium: #d97706;
+  --sev-medium-bg: #d97706;
+  --sev-safe: #7c3aed;
+  --sev-safe-bg: #7c3aed;
+  --brand-bg: #7c3aed;
+  --focus: 0 0 0 2px var(--bg-base), 0 0 0 2px var(--brand);
+}
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL BODY & VIEWPORT SETUP
+   -------------------------------------------------------------------------- */
+body {
+  background-color: var(--bg-base) !important;
+  color: var(--text-1) !important;
+  font-family: var(--font-ui) !important;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  display: none !important;
+}
+
+/* Monospace restricted to data identifiers and numbers */
+.mono,
+.alert-id,
+.kpi-value,
+.ev-val,
+input.search {
+  font-family: var(--font-data) !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. APP HEADER & STANDALONE BRAND
+   -------------------------------------------------------------------------- */
+.app-header-container {
+  position: fixed !important;
+  top: 14px !important;
+  left: 20px !important;
+  right: 20px !important;
+  height: 52px !important;
+  z-index: 100 !important;
+  display: flex !important;
+  align-items: center !important;
+  pointer-events: none !important;
+}
+
+/* Standalone Brand outside the navigation pill in top-left */
+.brand-standalone {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  z-index: 110 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  background: transparent !important;
+  border: none !important;
+  pointer-events: auto !important;
+  flex-shrink: 0 !important;
+}
+.brand-standalone .brand-mark {
+  color: var(--brand) !important;
+  display: flex;
+  align-items: center;
+}
+.brand-standalone .brand-mark svg {
+  width: 26px !important;
+  height: 26px !important;
+}
+.brand-standalone .brand-mark img.brand-logo-img,
+img.brand-logo-img {
+  width: 30px !important;
+  height: 30px !important;
+  object-fit: contain !important;
+  border-radius: 6px !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+.mule-trace-title,
+.brand-standalone .brand-text h1 {
+  font-size: clamp(var(--mt-size-sm), 3.5vw + 0.5rem, var(--mt-size-lg)) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.01em !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow-wrap: anywhere !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  color: var(--text-1) !important;
+}
+@media (max-width: 359px) {
+  .mule-trace-title,
+  .brand-standalone .brand-text h1 {
+    white-space: normal !important;
+  }
+}
+.brand-standalone .brand-text p {
+  display: none !important;
+}
+
+/* Nav Pill: now without the logo, centered in the remaining space */
+.app-header {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  margin: 0 auto !important;
+  width: auto !important;
+  height: 52px !important;
+  z-index: 100 !important;
+  background: #0b0912 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: var(--radius-pill) !important;
+  box-shadow: var(--shadow-float) !important;
+  padding: 0 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  justify-content: center !important;
+  pointer-events: auto !important;
+  transition: all var(--motion-fade);
+}
+
+/* Nav Tabs inside capsule */
+.app-header .tabs {
+  background: #120f1c !important;
+  padding: 3px !important;
+  border-radius: var(--radius-pill) !important;
+  border: 1px solid var(--hairline) !important;
+  gap: 4px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+.app-header .tab {
+  border-radius: var(--radius-pill) !important;
+  color: var(--text-2) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 6px 14px !important;
+  border: none !important;
+  background: transparent !important;
+  transition: all var(--motion-fast);
+}
+.app-header .tab:hover {
+  color: var(--text-1) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+/* Active Tab is a Flat Solid White Pill with Dark Text (No Glow) */
+.app-header .tab[aria-selected="true"],
+.app-header .tab.active {
+  background: var(--pill-active-bg) !important;
+  color: var(--pill-active-fg) !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+}
+.app-header .tab[aria-selected="true"] svg,
+.app-header .tab.active svg {
+  color: var(--pill-active-fg) !important;
+}
+
+/* Toolbar Column */
+.app-header .toolbar {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+/* Enlarged Search Trigger in Top Nav (min-width ~380px, height ~44px) */
+.app-header .toolbar button.btn-search-trigger,
+.app-header .toolbar button.btn[aria-keyshortcuts="Control+K"] {
+  min-width: 380px !important;
+  height: 44px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 0 16px !important;
+  font-size: 14px !important;
+  color: var(--text-2) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  cursor: pointer !important;
+  transition: all var(--motion-fast);
+  box-shadow: none !important;
+}
+.app-header .toolbar button.btn-search-trigger:hover,
+.app-header .toolbar button.btn[aria-keyshortcuts="Control+K"]:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--text-1) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  box-shadow: none !important;
+}
+.app-header .toolbar button.btn-search-trigger svg,
+.app-header .toolbar button.btn[aria-keyshortcuts="Control+K"] svg {
+  width: 18px !important;
+  height: 18px !important;
+  color: var(--text-2) !important;
+}
+.app-header .toolbar button.btn-search-trigger kbd,
+.app-header .toolbar button.btn[aria-keyshortcuts="Control+K"] kbd {
+  margin-left: auto !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: 6px !important;
+  color: var(--text-3) !important;
+  font-size: 11px !important;
+  padding: 2px 7px !important;
+}
+
+/* Action and Helper Buttons */
+.app-header .toolbar button.btn:not(.btn-search-trigger) {
+  border-radius: var(--radius-pill) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid var(--hairline) !important;
+  color: var(--text-2) !important;
+  font-size: 12px !important;
+  padding: 6px 12px !important;
+  transition: all var(--motion-fast);
+  box-shadow: none !important;
+}
+.app-header .toolbar button.btn:not(.btn-search-trigger):hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: var(--text-1) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  box-shadow: none !important;
+}
+.app-header .toolbar .icon-btn {
+  border-radius: var(--radius-pill) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--hairline) !important;
+  color: var(--text-2) !important;
+  transition: all var(--motion-fast);
+  box-shadow: none !important;
+}
+.app-header .toolbar .icon-btn:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: var(--text-1) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  box-shadow: none !important;
+}
+/* Remove Theme Select Dropdown ("Dark cyber-defense") */
+.app-header .toolbar select.theme-select,
+.app-header .toolbar label[for="theme"],
+select#theme,
+.theme-select {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. FULL-BLEED WORKSPACE & CENTER STAGE
+   -------------------------------------------------------------------------- */
+#workspace-root.app-main {
+  position: relative !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  overflow: hidden !important;
+  background-color: var(--bg-base) !important;
+}
+
+/* Graph container fills full bleed behind floating panels */
+.workspace-col--graph {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1 !important;
+  overflow: hidden !important;
+}
+
+#graph-canvas-container.graph-pane {
+  width: 100% !important;
+  height: 100% !important;
+  background: var(--bg-radial) !important;
+}
+
+/* Background canvas glow behind Cytoscape: removed site-wide */
+#graph-canvas-container::before {
+  display: none !important;
+}
+
+/* Cytoscape Canvas Host: must fill 100% full bleed without pill styling */
+.graph-host {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* Floating Top Center/Left Stage Capsule (Global View Header) */
+#graph-canvas-container > div[style*="top: 12px"]:not(.graph-controls):not(.graph-host) {
+  top: 76px !important;
+  left: 360px !important;
+  z-index: 20 !important;
+  background: var(--glass-strong) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: var(--radius-pill) !important;
+  box-shadow: var(--shadow-float) !important;
+  padding: 6px 14px !important;
+}
+
+/* Floating Zoom & Controls Group (Vertical Pill on Stage) */
+.graph-controls {
+  position: absolute !important;
+  top: 76px !important;
+  right: 395px !important;
+  z-index: 20 !important;
+  background: var(--glass-strong) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: var(--radius-pill) !important;
+  box-shadow: var(--shadow-float) !important;
+  padding: 6px 4px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+}
+.graph-controls .icon-btn {
+  border-radius: var(--radius-pill) !important;
+  background: transparent !important;
+  color: var(--text-2) !important;
+  border: none !important;
+  transition: all var(--motion-fast);
+}
+.graph-controls .icon-btn:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: var(--text-1) !important;
+  box-shadow: none !important;
+}
+
+/* Floating Typology Legend (Top-Left of Canvas - Below Subgraph Indicator) */
+.graph-legend,
+.legend-card {
+  position: fixed !important;
+  top: 124px !important;
+  left: 376px !important;
+  bottom: auto !important;
+  z-index: 25 !important;
+  background: #0f0d16 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: var(--radius-card) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. FLOATING LEFT PANEL: MULE ALERTS
+   -------------------------------------------------------------------------- */
+.workspace-col--alerts {
+  position: fixed !important;
+  top: 76px !important;
+  left: 16px !important;
+  bottom: 74px !important;
+  width: 350px !important;
+  z-index: 30 !important;
+  background: #0b0912 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: var(--radius-panel) !important;
+  box-shadow: var(--shadow-float) !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+aside.alerts {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  padding: 16px !important;
+}
+
+.alerts-head {
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid var(--hairline) !important;
+}
+.alerts-head .label {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: var(--text-1) !important;
+}
+.alerts-head .muted {
+  font-size: 11px !important;
+  color: var(--text-3) !important;
+}
+
+/* Filter Controls: Centered Severity Filter Row & Label */
+.alerts-controls {
+  padding: 12px 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+}
+
+/* Center the "FILTER BY SEVERITY" label horizontally above the chips */
+.alerts-controls > div {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  gap: 6px !important;
+}
+
+.alerts-controls > div > span {
+  font-size: 11px !important;
+  color: var(--text-3) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+}
+
+.alerts-controls [role="tablist"] {
+  background: rgba(14, 11, 22, 0.7) !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 3px !important;
+  display: flex !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  justify-content: center !important;
+  gap: 2px !important;
+}
+
+.alerts-controls [role="tab"] {
+  flex: 1 1 0 !important;
+  min-width: 0 !important;
+  border-radius: var(--radius-pill) !important;
+  border: none !important;
+  font-size: 11px !important;
+  padding: 5px 4px !important;
+  color: var(--text-2) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3px !important;
+  transition: all var(--motion-fast);
+  white-space: nowrap !important;
+}
+
+/* Active Filter = Flat Solid White Pill with Dark Text (No Glow) */
+.alerts-controls [role="tab"][aria-selected="true"] {
+  background: var(--pill-active-bg) !important;
+  color: var(--pill-active-fg) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Count badge inside active filter */
+.alerts-controls [role="tab"][aria-selected="true"] span[style*="border-radius"] {
+  background: rgba(139, 92, 246, 0.22) !important;
+  color: #6d28d9 !important;
+}
+
+/* Glass Search Pill */
+.alerts-controls input.search {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 8px 16px !important;
+  color: var(--text-1) !important;
+  font-size: 13px !important;
+  outline: none !important;
+  transition: all var(--motion-fast);
+}
+.alerts-controls input.search:focus {
+  border-color: var(--brand) !important;
+  box-shadow: 0 0 0 2px rgba(157, 114, 255, 0.25) !important;
+  background: rgba(255, 255, 255, 0.07) !important;
+}
+
+/* Alert Rows (Refined Dark Violet Glass Cards) */
+.alert-list {
+  flex: 1 !important;
+  overflow-y: auto !important;
+  padding-right: 4px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+.alert-list::-webkit-scrollbar {
+  width: 4px;
+}
+.alert-list::-webkit-scrollbar-thumb {
+  background: rgba(167, 139, 250, 0.16);
+  border-radius: 999px;
+}
+
+.alert-row {
+  width: 100% !important;
+  background: #0f0d16 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid #231c33 !important;
+  border-left: 1px solid #231c33 !important;
+  border-radius: var(--radius-card) !important;
+  padding: 12px 14px !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  transition: border-color var(--motion-fast), background-color var(--motion-fast);
+  position: relative;
+  box-shadow: none !important;
+}
+.alert-row:hover {
+  transform: none !important;
+  background: #14111f !important;
+  border-color: #7c3aed !important;
+  box-shadow: none !important;
+}
+.alert-row.is-selected {
+  border-color: #8b5cf6 !important;
+  box-shadow: none !important;
+  background: #181326 !important;
+}
+
+/* Subtle solid border for critical alerts */
+.alert-row.sev-critical {
+  border-color: #4a1724 !important;
+  box-shadow: none !important;
+}
+.alert-row.sev-critical:hover {
+  border-color: #ef4444 !important;
+  box-shadow: none !important;
+}
+
+/* Subtle solid border for medium alerts */
+.alert-row.sev-medium {
+  border-color: #473217 !important;
+  box-shadow: none !important;
+}
+.alert-row.sev-medium:hover {
+  border-color: #f59e0b !important;
+  box-shadow: none !important;
+}
+
+.alert-top {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 6px !important;
+}
+.alert-id {
+  font-weight: 700 !important;
+  color: var(--text-1) !important;
+  font-size: 13px !important;
+}
+.alert-score {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: var(--text-1) !important;
+}
+.alert-score small {
+  color: var(--text-3) !important;
+}
+.alert-name {
+  font-size: 12px !important;
+  color: var(--text-2) !important;
+  margin-bottom: 8px !important;
+}
+
+/* REMOVE ALL ICONS FROM ALERTS (No (!) in severity badge, no arrows in money flow) */
+.alert-row svg,
+.alert-top svg,
+.alert-flow svg,
+.severity-badge svg {
+  display: none !important;
+}
+
+/* Severity badge styling inside alerts - 100% SOLID PILLS (NO TRANSLUCENCY, NO NEON OUTLINES) */
+.alert-top span[style*="border-radius"],
+.severity-badge {
+  border-radius: var(--radius-pill) !important;
+  padding: 3px 10px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  line-height: 1.1 !important;
+  border: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Specific Solid Fills per Severity */
+.alert-row.sev-critical .alert-top span[style*="border-radius"],
+span[style*="var(--sev-critical-bg)"],
+.severity-critical {
+  background: #dc2626 !important;
+  background-color: #dc2626 !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.alert-row.sev-medium .alert-top span[style*="border-radius"],
+span[style*="var(--sev-medium-bg)"],
+.severity-medium {
+  background: #d97706 !important;
+  background-color: #d97706 !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.alert-row.sev-safe .alert-top span[style*="border-radius"],
+span[style*="var(--sev-safe-bg)"],
+.severity-safe {
+  background: #7c3aed !important;
+  background-color: #7c3aed !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+/* Flow amounts: clean, solid text with no icons */
+.flow-in {
+  color: #c4b5fd !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  font-weight: 600 !important;
+}
+.flow-out {
+  color: #f87171 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  font-weight: 600 !important;
+}
+
+/* Ring Group Accordion Header */
+.ring-group-section {
+  list-style: none !important;
+  margin-bottom: 8px !important;
+}
+.ring-group-header {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 8px 12px !important;
+  background: #110e1a !important;
+  border: 1px solid #231c33 !important;
+  border-radius: 10px !important;
+  color: var(--brand-light) !important;
+  font-size: 12px !important;
+  cursor: pointer !important;
+  margin-bottom: 8px !important;
+  transition: all var(--motion-fast);
+}
+.ring-group-header:hover {
+  background: #171324 !important;
+  border-color: #382b52 !important;
+}
+.ring-group-title {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-weight: 600 !important;
+  color: #c4b5fd !important;
+}
+/* Hide redundant network icon in ring header */
+.ring-group-title svg:not(:first-child) {
+  display: none !important;
+}
+/* Ring count badge: Solid purple pill with white text */
+.ring-group-badge {
+  font-size: 11px !important;
+  color: #ffffff !important;
+  background: #6d28d9 !important;
+  border: none !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 2px 9px !important;
+  font-weight: 700 !important;
+}
+
+/* Ring tag pill inside alert row (e.g. RING-LAY-2) - 100% SOLID PURPLE PILL (NO TRANSLUCENCY) */
+.chip,
+.chip--brand,
+.alert-flow .chip,
+span[class*="chip"] {
+  background: #7c3aed !important;
+  background-color: #7c3aed !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: var(--radius-pill) !important;
+  font-size: 11px !important;
+  padding: 3px 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Remove unnecessary footer in alert list */
+.alerts-foot {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. FLOATING RIGHT PANEL: ACCOUNT DOSSIER
+   -------------------------------------------------------------------------- */
+.workspace-col--inspector {
+  position: fixed !important;
+  top: 76px !important;
+  right: 16px !important;
+  bottom: 74px !important;
+  width: 365px !important;
+  max-width: calc(100% - 32px) !important;
+  z-index: 30 !important;
+  background: #0b0912 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: var(--radius-panel) !important;
+  box-shadow: var(--shadow-float) !important;
+  overflow-y: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Global to the panel and every descendant */
+.dossier-panel, .dossier-panel *,
+aside.dossier, aside.dossier * {
+  box-sizing: border-box !important;
+}
+
+aside.dossier,
+.dossier-panel {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  padding: 16px !important;
+  padding-left: max(16px, env(safe-area-inset-left)) !important;
+  padding-right: max(16px, env(safe-area-inset-right)) !important;
+  padding-bottom: calc(var(--bar-h, 64px) + 24px + env(safe-area-inset-bottom, 0px)) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+@media (min-width: 480px) {
+  aside.dossier,
+  .dossier-panel {
+    padding: 20px !important;
+    padding-bottom: calc(var(--bar-h, 64px) + 24px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
+/* Flex/grid children with text must shrink and wrap without overflow */
+.dossier-panel div,
+.dossier-panel span,
+.dossier-panel p,
+.dossier-panel h2,
+.dossier-panel h3,
+.dossier-panel li,
+.dossier-panel button,
+aside.dossier div,
+aside.dossier span,
+aside.dossier p,
+aside.dossier h2,
+aside.dossier h3,
+aside.dossier li,
+aside.dossier button {
+  min-width: 0 !important;
+}
+
+aside.dossier p,
+aside.dossier span,
+.dossier-panel p,
+.dossier-panel span {
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+.dossier-head {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  border-bottom: 1px solid var(--hairline) !important;
+  padding-bottom: 12px !important;
+  width: 100% !important;
+  margin-inline: 0 !important;
+}
+.dossier-head h2 {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: var(--text-1) !important;
+}
+.dossier-head .label,
+.dossier-section h3.label {
+  color: #a3b5ae !important; /* WCAG AA >= 4.5:1 */
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+.dossier .muted {
+  color: #a3b5ae !important; /* WCAG AA >= 4.5:1 */
+}
+.dossier-head .icon-btn {
+  border-radius: var(--radius-pill) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--hairline) !important;
+  color: var(--text-2) !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  touch-action: manipulation;
+}
+
+/* Score card */
+.dossier .score-card {
+  background: #0f0d16 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: 16px !important;
+  padding: 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  margin-inline: 0 !important;
+  box-shadow: none !important;
+}
+.dossier .score-main {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+}
+/* Circular Ring-Gauge for Score - Arc length dynamically governed by component style */
+.dossier .score-card .score {
+  width: 84px !important;
+  height: 84px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  color: var(--text-1) !important;
+  margin: 6px 0 !important;
+  box-shadow: none !important;
+}
+
+/* Thin gradient progress track for confidence (Flat) */
+.dossier .score-bar {
+  width: 100% !important;
+  height: 4px !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  margin-top: 10px !important;
+  margin-inline: 0 !important;
+}
+.dossier .score-bar span {
+  background: linear-gradient(90deg, var(--brand-dim), var(--brand)) !important;
+  box-shadow: none !important;
+}
+
+/* Paragraph under "WHY IT WAS FLAGGED" */
+.dossier .justification {
+  white-space: normal !important;
+  width: 100% !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+  color: var(--text-1) !important;
+  margin-top: 8px !important;
+  margin-bottom: 12px !important;
+}
+
+/* Rule rows (rounded solid cards with grid layout) */
+.dossier ul.evidence {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+}
+.dossier li.ev {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  grid-template-areas:
+    "label  badge"
+    "meta   meta"
+    "track  track" !important;
+  column-gap: 12px !important;
+  row-gap: 6px !important;
+  width: 100% !important;
+  margin-inline: 0 !important;
+  border-radius: 16px !important;
+  padding: 10px 14px !important;
+  background: #0f0d16 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid var(--hairline) !important;
+  box-sizing: border-box !important;
+  box-shadow: none !important;
+}
+.dossier .ev-label {
+  grid-area: label !important;
+  min-width: 0 !important;
+  overflow-wrap: anywhere !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  color: var(--text-1) !important;
+  line-height: 1.3 !important;
+}
+.dossier .ev-flag {
+  grid-area: badge !important;
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+  padding: 2px 8px !important;
+  font-size: 12px !important;
+  justify-self: end !important;
+  border-radius: var(--radius-pill) !important;
+  font-weight: 600 !important;
+}
+.dossier .ev-flag.is-met {
+  background: #dc2626 !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-weight: 700 !important;
+}
+.dossier .ev-flag.not-met {
+  background: #272038 !important;
+  color: #d8b4fe !important;
+  border: none !important;
+  font-weight: 700 !important;
+}
+.dossier .ev-meta {
+  grid-area: meta !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 4px 12px !important;
+  align-items: baseline !important;
+  min-width: 0 !important;
+}
+.dossier .ev-val {
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+  color: var(--text-1) !important;
+  font-size: 13px !important;
+}
+.dossier .ev-rule {
+  font-size: 12px !important;
+  color: #a3b5ae !important; /* WCAG AA >= 4.5:1 */
+}
+.dossier .ev-track {
+  grid-area: track !important;
+  width: 100% !important;
+  height: 6px !important;
+  border-radius: 999px !important;
+  position: relative !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  margin-inline: 0 !important;
+  overflow: visible !important;
+}
+.dossier .ev-fill {
+  display: block !important;
+  height: 100% !important;
+  border-radius: 999px !important;
+}
+.dossier .ev-fill--met {
+  background: var(--danger) !important;
+}
+.dossier .ev-fill--safe {
+  background: var(--brand) !important;
+}
+.dossier .ev-tick {
+  position: absolute !important;
+  top: -2px !important;
+  width: 2px !important;
+  height: 10px !important;
+  background: #ffffff !important;
+  border-radius: 1px !important;
+}
+@media (max-width: 340px) {
+  .dossier .ev-meta {
+    flex-direction: column !important;
+    gap: 2px !important;
+  }
+}
+
+/* "What would clear this account" solid card */
+.dossier section.counterfactual {
+  background: #120f1e !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid #3b2d5a !important;
+  border-radius: 16px !important;
+  padding: 14px !important;
+  width: 100% !important;
+  margin-inline: 0 !important;
+  box-shadow: none !important;
+}
+.dossier section.counterfactual h3 {
+  color: var(--brand-light) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+}
+.dossier section.counterfactual p {
+  color: var(--text-2) !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+/* Dossier action buttons: 2-column grid, min 44px height, stacks below 340px */
+.dossier-actions {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  margin-top: 8px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+.dossier-actions button,
+.dossier-actions .btn {
+  min-height: 44px !important;
+  min-width: 0 !important;
+  padding: 10px 12px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  border-radius: var(--radius-pill) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  touch-action: manipulation;
+  cursor: pointer !important;
+  transition: all var(--motion-fast);
+}
+.dossier-actions .btn--primary {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35) !important;
+}
+.dossier-actions .btn--primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+.dossier-actions .btn--danger-outline {
+  background: transparent !important;
+  color: var(--sev-critical) !important;
+  border: 1px solid rgba(244, 63, 94, 0.4) !important;
+}
+.dossier-actions .btn--danger-outline:hover {
+  background: rgba(244, 63, 94, 0.12) !important;
+  box-shadow: none !important;
+}
+@media (max-width: 340px) {
+  .dossier-actions {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. COMPACT KPI BOTTOM DOCK PANEL (REDUCED HEIGHT BY ~40%)
+   -------------------------------------------------------------------------- */
+.kpi-strip {
+  position: fixed !important;
+  bottom: 10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: calc(100% - 32px) !important;
+  max-width: 1440px !important;
+  z-index: 40 !important;
+  background: #0b0912 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--shadow-float) !important;
+  padding: 4px 14px !important;
+  transition: all var(--motion-fade);
+}
+
+.kpi-grid {
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important;
+  gap: 8px !important;
+  width: 100% !important;
+  align-items: center !important;
+}
+
+.kpi {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  padding: 2px 8px !important;
+  position: relative !important;
+}
+.kpi:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background: var(--hairline);
+}
+
+/* Compact icon chip */
+.kpi .kpi-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: var(--radius-pill) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: var(--text-2) !important;
+  margin-bottom: 2px !important;
+}
+.kpi .kpi-icon svg {
+  width: 11px !important;
+  height: 11px !important;
+}
+.kpi--danger .kpi-icon {
+  background: rgba(239, 91, 75, 0.15) !important;
+  color: var(--danger) !important;
+}
+.kpi--success .kpi-icon {
+  background: rgba(139, 92, 246, 0.16) !important;
+  color: #c4b5fd !important;
+}
+.kpi--warning .kpi-icon {
+  background: rgba(245, 154, 69, 0.15) !important;
+  color: var(--warn) !important;
+}
+
+/* Small uppercase muted label */
+.kpi .label {
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: var(--text-3) !important;
+  font-weight: 600 !important;
+  margin-bottom: 1px !important;
+}
+
+/* Compact headline number (Flat - No text-shadow glow) */
+.kpi .kpi-value {
+  font-family: var(--font-ui) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.3px !important;
+  color: var(--text-1) !important;
+  line-height: 1.1 !important;
+  text-shadow: none !important;
+}
+.kpi--danger .kpi-value {
+  color: var(--danger) !important;
+  text-shadow: none !important;
+}
+.kpi--success .kpi-value {
+  color: var(--brand) !important;
+  text-shadow: none !important;
+}
+.kpi--warning .kpi-value {
+  color: var(--warn) !important;
+  text-shadow: none !important;
+}
+
+.kpi .kpi-caption {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   8. PLAYBACK SCRUBBER (ELEVATED & FULLY VISIBLE ABOVE ALL PANELS & DOCKS)
+   -------------------------------------------------------------------------- */
+#timeline-scrubber-bar {
+  position: fixed !important;
+  bottom: 98px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: min(640px, calc(100vw - 780px)) !important;
+  max-width: 640px !important;
+  min-width: 480px !important;
+  z-index: 1000 !important;
+  background: #0f0c1c !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1.5px solid #7c3aed !important;
+  border-radius: 16px !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.9), 0 0 24px rgba(124, 58, 237, 0.3) !important;
+  padding: 12px 18px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+#timeline-scrubber-bar button {
+  border-radius: var(--radius-pill) !important;
+  transition: all var(--motion-fast);
+}
+#timeline-scrubber-bar button[title="Play"],
+#timeline-scrubber-bar button[title="Pause"] {
+  background: #7c3aed !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4) !important;
+}
+
+#timeline-scrubber-bar input[type="range"] {
+  accent-color: #8b5cf6 !important;
+}
+
+#timeline-scrubber-bar .mono,
+#timeline-scrubber-bar span[style*="fontFamily: 'monospace'"],
+#timeline-scrubber-bar span[style*="font-family: monospace"] {
+  color: #ffffff !important;
+}
+
+/* --------------------------------------------------------------------------
+   9. MODALS & POPUPS RESKIN
+   -------------------------------------------------------------------------- */
+.modal,
+dialog[open],
+dialog.modal,
+.palette-modal,
+.freeze-modal,
+.sar-modal {
+  background: #0f0c18 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid #382b52 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(124, 58, 237, 0.2) !important;
+  color: var(--text-1) !important;
+  padding: 24px !important;
+  box-sizing: border-box !important;
+}
+
+dialog::backdrop {
+  background: rgba(4, 3, 8, 0.75) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+dialog.modal h3,
+.modal h3 {
+  color: #ffffff !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  margin: 0 0 10px 0 !important;
+}
+
+dialog.modal p,
+.modal p {
+  color: var(--text-2) !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  margin: 0 0 20px 0 !important;
+}
+
+.modal-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 12px !important;
+  margin-top: 20px !important;
+}
+
+/* Modal Danger/Confirm Button (Solid Red Fill Whole with Pure White Bold Text) */
+.btn--danger,
+button.btn--danger,
+.modal-actions .btn--danger {
+  background: #dc2626 !important;
+  background-color: #dc2626 !important;
+  color: #ffffff !important;
+  border: 1px solid #dc2626 !important;
+  border-radius: var(--radius-pill) !important;
+  font-weight: 700 !important;
+  padding: 8px 18px !important;
+  cursor: pointer !important;
+  font-size: 13px !important;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-shadow: none !important;
+  transition: all var(--motion-fast);
+}
+.btn--danger:hover,
+button.btn--danger:hover,
+.modal-actions .btn--danger:hover {
+  background: #b91c1c !important;
+  border-color: #b91c1c !important;
+}
+
+/* Modal Cancel / Secondary Button */
+.modal-actions button:not(.btn--danger):not(.btn--primary),
+.modal-actions .btn:not(.btn--danger):not(.btn--primary) {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 8px 18px !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all var(--motion-fast);
+}
+.modal-actions button:not(.btn--danger):not(.btn--primary):hover,
+.modal-actions .btn:not(.btn--danger):not(.btn--primary):hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.palette-input-wrap input {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: var(--radius-pill) !important;
+  color: var(--text-1) !important;
+}
+
+/* --------------------------------------------------------------------------
+   10. OTHER SCREENS (RINGS, LAB, OMEGA) FULL HARMONIZATION
+   -------------------------------------------------------------------------- */
+.rings-screen,
+.lab-screen,
+.omega-screen {
+  padding-top: 80px !important;
+  padding-bottom: 96px !important;
+  background: var(--bg-radial) !important;
+  min-height: 100vh !important;
+}
+
+.ring-card,
+.lab-card,
+.omega-card,
+.omega-step-card,
+.lab-panel {
+  background: #0d0b14 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid var(--hairline) !important;
+  border-radius: var(--radius-card) !important;
+  box-shadow: none !important;
+}
+
+/* SOLID CONFUSION MATRIX COLORED BOXES (100% SOLID FILL WHOLE, NO TRANSLUCENCY, NO NEON SHADE) */
+.cm-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 14px !important;
+  margin-top: 12px !important;
+}
+.cm-cell {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-radius: 14px !important;
+  padding: 18px 16px !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 6px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  border: none !important;
+}
+.cm-tag {
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  line-height: 1.2 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+.cm-num {
+  font-size: 34px !important;
+  font-weight: 900 !important;
+  line-height: 1.1 !important;
+  margin: 4px 0 !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+.cm-desc {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+}
+
+/* 1. True Positive: Solid Purple Fill Whole */
+.cm--tp {
+  background: #6d28d9 !important;
+  background-color: #6d28d9 !important;
+  border: none !important;
+}
+.cm--tp .cm-tag {
+  color: #ede9fe !important;
+}
+.cm--tp .cm-num {
+  color: #ffffff !important;
+}
+.cm--tp .cm-desc {
+  color: #ddd6fe !important;
+}
+
+/* 2. False Positive: Solid Red Fill Whole */
+.cm--fp {
+  background: #dc2626 !important;
+  background-color: #dc2626 !important;
+  border: none !important;
+}
+.cm--fp .cm-tag {
+  color: #fee2e2 !important;
+}
+.cm--fp .cm-num {
+  color: #ffffff !important;
+}
+.cm--fp .cm-desc {
+  color: #fecaca !important;
+}
+
+/* 3. False Negative: Solid Amber Fill Whole */
+.cm--fn,
+.cm--fn.is-emphasised {
+  background: #d97706 !important;
+  background-color: #d97706 !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+.cm--fn .cm-tag {
+  color: #fef3c7 !important;
+}
+.cm--fn .cm-num {
+  color: #ffffff !important;
+}
+.cm--fn .cm-desc {
+  color: #fde68a !important;
+}
+
+/* 4. True Negative: Solid Indigo Fill Whole */
+.cm--tn {
+  background: #4f46e5 !important;
+  background-color: #4f46e5 !important;
+  border: none !important;
+}
+.cm--tn .cm-tag {
+  color: #e0e7ff !important;
+}
+.cm--tn .cm-num {
+  color: #ffffff !important;
+}
+.cm--tn .cm-desc {
+  color: #c7d2fe !important;
+}
+
+/* Omega horizontal stepper active tab = solid white pill */
+.omega-screen nav[role="tablist"] button[aria-selected="true"] {
+  background: var(--pill-active-bg) !important;
+  color: var(--pill-active-fg) !important;
+  border-radius: var(--radius-pill) !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   11. ACCESSIBILITY & RESPONSIVE FALLBACKS
+   -------------------------------------------------------------------------- */
+@supports not (backdrop-filter: blur(1px)) {
+  header.app-header,
+  .workspace-col--alerts,
+  .workspace-col--inspector,
+  .kpi-strip,
+  #timeline-scrubber-bar,
+  .modal {
+    background: var(--glass-strong) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Medium Screens (1024px - 1280px) */
+@media (max-width: 1280px) {
+  .app-header {
+    margin-left: 90px !important;
+    gap: 8px !important;
+    padding: 0 10px !important;
+  }
+  .app-header .toolbar button.btn-search-trigger,
+  .app-header .toolbar button.btn[aria-keyshortcuts="Control+K"] {
+    min-width: 240px !important;
+  }
+  .app-header .tab {
+    padding: 5px 8px !important;
+    font-size: 12px !important;
+  }
+  .app-header .toolbar .btn-presenter {
+    display: none !important;
+  }
+  .workspace-col--alerts {
+    width: 300px !important;
+  }
+  .workspace-col--inspector {
+    width: 320px !important;
+  }
+  #graph-canvas-container > div[style*="top: 12px"]:not(.graph-controls):not(.graph-host) {
+    left: 320px !important;
+  }
+  .graph-controls {
+    right: 345px !important;
+  }
+  .kpi-grid {
+    gap: 8px !important;
+  }
+  .kpi .kpi-value {
+    font-size: 15px !important;
+  }
+}
+
+/* Small Screens (< 1024px) */
+@media (max-width: 1023px) {
+  html, body, #root, .app-layout, .app-main, .workspace-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+  .app-header-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px 16px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    box-sizing: border-box !important;
+  }
+  .app-header {
+    width: auto !important;
+    max-width: 100% !important;
+    top: auto !important;
+    margin: 0 !important;
+    border-radius: var(--radius-pill) !important;
+    overflow-x: auto !important;
+    box-sizing: border-box !important;
+  }
+  .workspace-col--alerts {
+    position: relative !important;
+    top: 60px !important;
+    left: 0 !important;
+    bottom: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 380px !important;
+    border-radius: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .workspace-col--graph {
+    position: relative !important;
+    height: 480px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+  .workspace-grid {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+  .workspace-col--inspector:empty {
+    display: none !important;
+  }
+  .workspace-col--inspector {
+    position: fixed !important;
+    top: 60px !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: calc(100% - 60px) !important;
+    z-index: 45 !important;
+    border-radius: 0 !important;
+    border: none !important;
+    background: var(--bg-base) !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+  }
+  #timeline-scrubber-bar {
+    display: none !important;
+  }
+
+  /* Floating bottom bar ("8.61 Lakh | DAY-ZERO WARNINGS 2 Clusters") */
+  .kpi-strip {
+    position: fixed !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: max(12px, env(safe-area-inset-bottom)) !important;
+    width: calc(100% - 32px) !important;
+    max-width: 560px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 10px 14px !important;
+    border-radius: 16px !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    z-index: 50 !important;
+    height: auto !important;
+    background: var(--glass-strong) !important;
+    backdrop-filter: var(--glass-blur) !important;
+    -webkit-backdrop-filter: var(--glass-blur) !important;
+    border: 1px solid var(--hairline) !important;
+    box-shadow: var(--shadow-float) !important;
+  }
+  .kpi-grid {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .kpi-grid .kpi:nth-child(-n+4) {
+    display: none !important;
+  }
+  /* Item 5: Amount block ("8.61 Lakh") - fully visible, flex-shrink 0, >= 16px from left edge */
+  .kpi-grid .kpi:nth-child(5) {
+    flex-shrink: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .kpi-grid .kpi:nth-child(5)::after {
+    display: none !important;
+  }
+  .kpi-grid .kpi:nth-child(5) .label {
+    display: none !important;
+  }
+  .kpi-grid .kpi:nth-child(5) .kpi-value {
+    color: var(--brand-light) !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
+  /* Item 6: Day-Zero Warnings */
+  .kpi-grid .kpi:nth-child(6) {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .kpi-grid .kpi:nth-child(6) .label {
+    min-width: 0 !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    font-size: 11px !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    color: var(--text-2) !important;
+  }
+  .kpi-grid .kpi:nth-child(6) .kpi-value {
+    color: var(--warn) !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+  }
+  .kpi-grid .kpi:nth-child(6) .kpi-chevron {
+    display: none !important;
+  }
+  .kpi-collapse-btn {
+    min-width: 32px !important;
+    min-height: 32px !important;
+    width: 32px !important;
+    height: 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    margin-left: auto !important;
+    border-radius: var(--radius-pill) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid var(--hairline) !important;
+    color: var(--text-2) !important;
+    cursor: pointer !important;
+  }
+}
+
+/* Below 360px: allow the floating bar to wrap into two rows (amount + chevron on row 1, warnings on row 2) */
+@media (max-width: 359px) {
+  .kpi-strip {
+    flex-wrap: wrap !important;
+    padding: 8px 12px !important;
+  }
+  .kpi-grid {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+  .kpi-grid .kpi:nth-child(5) {
+    order: 1 !important;
+  }
+  .kpi-collapse-btn {
+    order: 2 !important;
+  }
+  .kpi-grid .kpi:nth-child(6) {
+    order: 3 !important;
+    width: 100% !important;
+  }
+}

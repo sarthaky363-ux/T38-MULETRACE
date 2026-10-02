@@ -1,0 +1,811 @@
+account_id,label,ring_id,ring_type,note
+ACC_CHAIN_01,mule,RING_R2_PASSTHROUGH,passthrough,R2: Hop #1 in rapid pass-through layering chain (forwards >97% in <3m)
+ACC_CHAIN_02,mule,RING_R2_PASSTHROUGH,passthrough,R2: Hop #2 in rapid pass-through layering chain (forwards >97% in <3m)
+ACC_CHAIN_03,mule,RING_R2_PASSTHROUGH,passthrough,R2: Hop #3 in rapid pass-through layering chain (forwards >97% in <3m)
+ACC_CHAIN_04,mule,RING_R2_PASSTHROUGH,passthrough,R2: Hop #4 in rapid pass-through layering chain (forwards >97% in <3m)
+ACC_CHAIN_05,mule,RING_R2_PASSTHROUGH,passthrough,R2: Hop #5 in rapid pass-through layering chain (forwards >97% in <3m)
+ACC_CHAIN_06,mule,RING_R2_PASSTHROUGH,passthrough,R2: Hop #6 in rapid pass-through layering chain (forwards >97% in <3m)
+ACC_EVASION_EX_01,exit,RING_R6_EVASION,evasion,R6: Exit destination 1 for evasion test
+ACC_EVASION_EX_02,exit,RING_R6_EVASION,evasion,R6: Exit destination 2 for evasion test
+ACC_EVASION_EX_03,exit,RING_R6_EVASION,evasion,R6: Exit destination 3 for evasion test
+ACC_EVASION_HUB01,mule,RING_R6_EVASION,evasion,"R6: Evasion ring hub configured to be caught under relaxed settings, but evasive under balanced/strict"
+ACC_EVASION_SRC_01,victim,RING_R6_EVASION,evasion,R6: Inflow source 1 for evasion test
+ACC_EVASION_SRC_02,victim,RING_R6_EVASION,evasion,R6: Inflow source 2 for evasion test
+ACC_EVASION_SRC_03,victim,RING_R6_EVASION,evasion,R6: Inflow source 3 for evasion test
+ACC_EVASION_SRC_04,victim,RING_R6_EVASION,evasion,R6: Inflow source 4 for evasion test
+ACC_EVASION_SRC_05,victim,RING_R6_EVASION,evasion,R6: Inflow source 5 for evasion test
+ACC_EVASION_SRC_06,victim,RING_R6_EVASION,evasion,R6: Inflow source 6 for evasion test
+ACC_EVASION_SRC_07,victim,RING_R6_EVASION,evasion,R6: Inflow source 7 for evasion test
+ACC_EXIT_ATM01,exit,RING_R2_PASSTHROUGH,passthrough,R2: Terminal ATM cash withdrawal card mule
+ACC_EXIT_CRYPTO,exit,RING_R1_FAN_IN_OUT,fan_in_out,R1: Unregulated crypto OTC cash-out terminal exit
+ACC_FAMILY_01,hard_negative,RING_L5_FAMILY,family,L5: Legitimate family accounts sharing a home tablet; long account tenure
+ACC_FAMILY_02,hard_negative,RING_L5_FAMILY,family,L5: Legitimate family accounts sharing a home tablet; long account tenure
+ACC_FAMILY_03,hard_negative,RING_L5_FAMILY,family,L5: Legitimate family accounts sharing a home tablet; long account tenure
+ACC_FAMILY_04,hard_negative,RING_L5_FAMILY,family,L5: Legitimate family accounts sharing a home tablet; long account tenure
+ACC_FRIEND_A1,hard_negative,RING_L6_FRIEND_PAIR_1,friend_pair,L6: Legitimate peer-to-peer 2-party reimbursement cycle between friends
+ACC_FRIEND_A2,hard_negative,RING_L6_FRIEND_PAIR_2,friend_pair,L6: Legitimate peer-to-peer 2-party reimbursement cycle between friends
+ACC_FRIEND_A3,hard_negative,RING_L6_FRIEND_PAIR_3,friend_pair,L6: Legitimate peer-to-peer 2-party reimbursement cycle between friends
+ACC_FRIEND_A4,hard_negative,RING_L6_FRIEND_PAIR_4,friend_pair,L6: Legitimate peer-to-peer 2-party reimbursement cycle between friends
+ACC_FRIEND_A5,hard_negative,RING_L6_FRIEND_PAIR_5,friend_pair,L6: Legitimate peer-to-peer 2-party reimbursement cycle between friends
+ACC_FRIEND_A6,hard_negative,RING_L6_FRIEND_PAIR_6,friend_pair,L6: Legitimate peer-to-peer 2-party reimbursement cycle between friends
+ACC_FRIEND_B1,hard_negative,RING_L6_FRIEND_PAIR_1,friend_pair,L6: Legitimate peer-to-peer 2-party reimbursement cycle between friends
+ACC_FRIEND_B2,hard_negative,RING_L6_FRIEND_PAIR_2,friend_pair,L6: Legitimate peer-to-peer 2-party reimbursement cycle between friends
+ACC_FRIEND_B3,hard_negative,RING_L6_FRIEND_PAIR_3,friend_pair,L6: Legitimate peer-to-peer 2-party reimbursement cycle between friends
+ACC_FRIEND_B4,hard_negative,RING_L6_FRIEND_PAIR_4,friend_pair,L6: Legitimate peer-to-peer 2-party reimbursement cycle between friends
+ACC_FRIEND_B5,hard_negative,RING_L6_FRIEND_PAIR_5,friend_pair,L6: Legitimate peer-to-peer 2-party reimbursement cycle between friends
+ACC_FRIEND_B6,hard_negative,RING_L6_FRIEND_PAIR_6,friend_pair,L6: Legitimate peer-to-peer 2-party reimbursement cycle between friends
+ACC_LANDLORD_01,hard_negative,RING_L4_LANDLORD,landlord,L4: Legitimate rental collection account with multiple tenant deposits and no rapid drain
+ACC_LOOP_01,mule,RING_R3_CIRCULAR,cycle,"R3: Member of 4-hop wash trading cycle (₹95,000 loop in 38m)"
+ACC_LOOP_02,mule,RING_R3_CIRCULAR,cycle,"R3: Member of 4-hop wash trading cycle (₹95,000 loop in 38m)"
+ACC_LOOP_03,mule,RING_R3_CIRCULAR,cycle,"R3: Member of 4-hop wash trading cycle (₹95,000 loop in 38m)"
+ACC_LOOP_04,mule,RING_R3_CIRCULAR,cycle,"R3: Member of 4-hop wash trading cycle (₹95,000 loop in 38m)"
+ACC_MERCHANT_01,hard_negative,RING_L1_MERCHANTS,merchant,L1: Legitimate high-volume merchant with scheduled evening batch settlement
+ACC_MERCHANT_02,hard_negative,RING_L1_MERCHANTS,merchant,L1: Legitimate high-volume merchant with scheduled evening batch settlement
+ACC_MERCHANT_03,hard_negative,RING_L1_MERCHANTS,merchant,L1: Legitimate high-volume merchant with scheduled evening batch settlement
+ACC_MERCHANT_04,hard_negative,RING_L1_MERCHANTS,merchant,L1: Legitimate high-volume merchant with scheduled evening batch settlement
+ACC_MERCHANT_05,hard_negative,RING_L1_MERCHANTS,merchant,L1: Legitimate high-volume merchant with scheduled evening batch settlement
+ACC_MERCHANT_06,hard_negative,RING_L1_MERCHANTS,merchant,L1: Legitimate high-volume merchant with scheduled evening batch settlement
+ACC_MERCHANT_07,hard_negative,RING_L1_MERCHANTS,merchant,L1: Legitimate high-volume merchant with scheduled evening batch settlement
+ACC_MERCHANT_08,hard_negative,RING_L1_MERCHANTS,merchant,L1: Legitimate high-volume merchant with scheduled evening batch settlement
+ACC_MULE_FAN01,mule,RING_R1_FAN_IN_OUT,fan_in_out,"R1: Rapid fan-in aggregation hub (₹4,05,000 received in 13 min, 96.3% forwarded)"
+ACC_PAYROLL_01,hard_negative,RING_L2_PAYROLL,payroll,L2: Legitimate corporate payroll disbursement hub
+ACC_PAYROLL_02,hard_negative,RING_L2_PAYROLL,payroll,L2: Legitimate corporate payroll disbursement hub
+ACC_PAYROLL_03,hard_negative,RING_L2_PAYROLL,payroll,L2: Legitimate corporate payroll disbursement hub
+ACC_RESELLER_01,hard_negative,RING_L7_RESELLER,reseller,L7: Legitimate small online reseller with multi-year tenure and steady inventory forwarding
+ACC_RET_0001,legit,NONE,none,Standard retail bank customer
+ACC_RET_0002,legit,NONE,none,Standard retail bank customer
+ACC_RET_0003,legit,NONE,none,Standard retail bank customer
+ACC_RET_0004,legit,NONE,none,Standard retail bank customer
+ACC_RET_0005,legit,NONE,none,Standard retail bank customer
+ACC_RET_0006,legit,NONE,none,Standard retail bank customer
+ACC_RET_0007,legit,NONE,none,Standard retail bank customer
+ACC_RET_0008,legit,NONE,none,Standard retail bank customer
+ACC_RET_0009,legit,NONE,none,Standard retail bank customer
+ACC_RET_0010,legit,NONE,none,Standard retail bank customer
+ACC_RET_0011,legit,NONE,none,Standard retail bank customer
+ACC_RET_0012,legit,NONE,none,Standard retail bank customer
+ACC_RET_0013,legit,NONE,none,Standard retail bank customer
+ACC_RET_0014,legit,NONE,none,Standard retail bank customer
+ACC_RET_0015,legit,NONE,none,Standard retail bank customer
+ACC_RET_0016,legit,NONE,none,Standard retail bank customer
+ACC_RET_0017,legit,NONE,none,Standard retail bank customer
+ACC_RET_0018,legit,NONE,none,Standard retail bank customer
+ACC_RET_0019,legit,NONE,none,Standard retail bank customer
+ACC_RET_0020,legit,NONE,none,Standard retail bank customer
+ACC_RET_0021,legit,NONE,none,Standard retail bank customer
+ACC_RET_0022,legit,NONE,none,Standard retail bank customer
+ACC_RET_0023,legit,NONE,none,Standard retail bank customer
+ACC_RET_0024,legit,NONE,none,Standard retail bank customer
+ACC_RET_0025,legit,NONE,none,Standard retail bank customer
+ACC_RET_0026,legit,NONE,none,Standard retail bank customer
+ACC_RET_0027,legit,NONE,none,Standard retail bank customer
+ACC_RET_0028,legit,NONE,none,Standard retail bank customer
+ACC_RET_0029,legit,NONE,none,Standard retail bank customer
+ACC_RET_0030,legit,NONE,none,Standard retail bank customer
+ACC_RET_0031,legit,NONE,none,Standard retail bank customer
+ACC_RET_0032,legit,NONE,none,Standard retail bank customer
+ACC_RET_0033,legit,NONE,none,Standard retail bank customer
+ACC_RET_0034,legit,NONE,none,Standard retail bank customer
+ACC_RET_0035,legit,NONE,none,Standard retail bank customer
+ACC_RET_0036,legit,NONE,none,Standard retail bank customer
+ACC_RET_0037,legit,NONE,none,Standard retail bank customer
+ACC_RET_0038,legit,NONE,none,Standard retail bank customer
+ACC_RET_0039,legit,NONE,none,Standard retail bank customer
+ACC_RET_0040,legit,NONE,none,Standard retail bank customer
+ACC_RET_0041,legit,NONE,none,Standard retail bank customer
+ACC_RET_0042,legit,NONE,none,Standard retail bank customer
+ACC_RET_0043,legit,NONE,none,Standard retail bank customer
+ACC_RET_0044,legit,NONE,none,Standard retail bank customer
+ACC_RET_0045,legit,NONE,none,Standard retail bank customer
+ACC_RET_0046,legit,NONE,none,Standard retail bank customer
+ACC_RET_0047,legit,NONE,none,Standard retail bank customer
+ACC_RET_0048,legit,NONE,none,Standard retail bank customer
+ACC_RET_0049,legit,NONE,none,Standard retail bank customer
+ACC_RET_0050,legit,NONE,none,Standard retail bank customer
+ACC_RET_0051,legit,NONE,none,Standard retail bank customer
+ACC_RET_0052,legit,NONE,none,Standard retail bank customer
+ACC_RET_0053,legit,NONE,none,Standard retail bank customer
+ACC_RET_0054,legit,NONE,none,Standard retail bank customer
+ACC_RET_0055,legit,NONE,none,Standard retail bank customer
+ACC_RET_0056,legit,NONE,none,Standard retail bank customer
+ACC_RET_0057,legit,NONE,none,Standard retail bank customer
+ACC_RET_0058,legit,NONE,none,Standard retail bank customer
+ACC_RET_0059,legit,NONE,none,Standard retail bank customer
+ACC_RET_0060,legit,NONE,none,Standard retail bank customer
+ACC_RET_0061,legit,NONE,none,Standard retail bank customer
+ACC_RET_0062,legit,NONE,none,Standard retail bank customer
+ACC_RET_0063,legit,NONE,none,Standard retail bank customer
+ACC_RET_0064,legit,NONE,none,Standard retail bank customer
+ACC_RET_0065,legit,NONE,none,Standard retail bank customer
+ACC_RET_0066,legit,NONE,none,Standard retail bank customer
+ACC_RET_0067,legit,NONE,none,Standard retail bank customer
+ACC_RET_0068,legit,NONE,none,Standard retail bank customer
+ACC_RET_0069,legit,NONE,none,Standard retail bank customer
+ACC_RET_0070,legit,NONE,none,Standard retail bank customer
+ACC_RET_0071,legit,NONE,none,Standard retail bank customer
+ACC_RET_0072,legit,NONE,none,Standard retail bank customer
+ACC_RET_0073,legit,NONE,none,Standard retail bank customer
+ACC_RET_0074,legit,NONE,none,Standard retail bank customer
+ACC_RET_0075,legit,NONE,none,Standard retail bank customer
+ACC_RET_0076,legit,NONE,none,Standard retail bank customer
+ACC_RET_0077,legit,NONE,none,Standard retail bank customer
+ACC_RET_0078,legit,NONE,none,Standard retail bank customer
+ACC_RET_0079,legit,NONE,none,Standard retail bank customer
+ACC_RET_0080,legit,NONE,none,Standard retail bank customer
+ACC_RET_0081,legit,NONE,none,Standard retail bank customer
+ACC_RET_0082,legit,NONE,none,Standard retail bank customer
+ACC_RET_0083,legit,NONE,none,Standard retail bank customer
+ACC_RET_0084,legit,NONE,none,Standard retail bank customer
+ACC_RET_0085,legit,NONE,none,Standard retail bank customer
+ACC_RET_0086,legit,NONE,none,Standard retail bank customer
+ACC_RET_0087,legit,NONE,none,Standard retail bank customer
+ACC_RET_0088,legit,NONE,none,Standard retail bank customer
+ACC_RET_0089,legit,NONE,none,Standard retail bank customer
+ACC_RET_0090,legit,NONE,none,Standard retail bank customer
+ACC_RET_0091,legit,NONE,none,Standard retail bank customer
+ACC_RET_0092,legit,NONE,none,Standard retail bank customer
+ACC_RET_0093,legit,NONE,none,Standard retail bank customer
+ACC_RET_0094,legit,NONE,none,Standard retail bank customer
+ACC_RET_0095,legit,NONE,none,Standard retail bank customer
+ACC_RET_0096,legit,NONE,none,Standard retail bank customer
+ACC_RET_0097,legit,NONE,none,Standard retail bank customer
+ACC_RET_0098,legit,NONE,none,Standard retail bank customer
+ACC_RET_0099,legit,NONE,none,Standard retail bank customer
+ACC_RET_0100,legit,NONE,none,Standard retail bank customer
+ACC_RET_0101,legit,NONE,none,Standard retail bank customer
+ACC_RET_0102,legit,NONE,none,Standard retail bank customer
+ACC_RET_0103,legit,NONE,none,Standard retail bank customer
+ACC_RET_0104,legit,NONE,none,Standard retail bank customer
+ACC_RET_0105,legit,NONE,none,Standard retail bank customer
+ACC_RET_0106,legit,NONE,none,Standard retail bank customer
+ACC_RET_0107,legit,NONE,none,Standard retail bank customer
+ACC_RET_0108,legit,NONE,none,Standard retail bank customer
+ACC_RET_0109,legit,NONE,none,Standard retail bank customer
+ACC_RET_0110,legit,NONE,none,Standard retail bank customer
+ACC_RET_0111,legit,NONE,none,Standard retail bank customer
+ACC_RET_0112,legit,NONE,none,Standard retail bank customer
+ACC_RET_0113,legit,NONE,none,Standard retail bank customer
+ACC_RET_0114,legit,NONE,none,Standard retail bank customer
+ACC_RET_0115,legit,NONE,none,Standard retail bank customer
+ACC_RET_0116,legit,NONE,none,Standard retail bank customer
+ACC_RET_0117,legit,NONE,none,Standard retail bank customer
+ACC_RET_0118,legit,NONE,none,Standard retail bank customer
+ACC_RET_0119,legit,NONE,none,Standard retail bank customer
+ACC_RET_0120,legit,NONE,none,Standard retail bank customer
+ACC_RET_0121,legit,NONE,none,Standard retail bank customer
+ACC_RET_0122,legit,NONE,none,Standard retail bank customer
+ACC_RET_0123,legit,NONE,none,Standard retail bank customer
+ACC_RET_0124,legit,NONE,none,Standard retail bank customer
+ACC_RET_0125,legit,NONE,none,Standard retail bank customer
+ACC_RET_0126,legit,NONE,none,Standard retail bank customer
+ACC_RET_0127,legit,NONE,none,Standard retail bank customer
+ACC_RET_0128,legit,NONE,none,Standard retail bank customer
+ACC_RET_0129,legit,NONE,none,Standard retail bank customer
+ACC_RET_0130,legit,NONE,none,Standard retail bank customer
+ACC_RET_0131,legit,NONE,none,Standard retail bank customer
+ACC_RET_0132,legit,NONE,none,Standard retail bank customer
+ACC_RET_0133,legit,NONE,none,Standard retail bank customer
+ACC_RET_0134,legit,NONE,none,Standard retail bank customer
+ACC_RET_0135,legit,NONE,none,Standard retail bank customer
+ACC_RET_0136,legit,NONE,none,Standard retail bank customer
+ACC_RET_0137,legit,NONE,none,Standard retail bank customer
+ACC_RET_0138,legit,NONE,none,Standard retail bank customer
+ACC_RET_0139,legit,NONE,none,Standard retail bank customer
+ACC_RET_0140,legit,NONE,none,Standard retail bank customer
+ACC_RET_0141,legit,NONE,none,Standard retail bank customer
+ACC_RET_0142,legit,NONE,none,Standard retail bank customer
+ACC_RET_0143,legit,NONE,none,Standard retail bank customer
+ACC_RET_0144,legit,NONE,none,Standard retail bank customer
+ACC_RET_0145,legit,NONE,none,Standard retail bank customer
+ACC_RET_0146,legit,NONE,none,Standard retail bank customer
+ACC_RET_0147,legit,NONE,none,Standard retail bank customer
+ACC_RET_0148,legit,NONE,none,Standard retail bank customer
+ACC_RET_0149,legit,NONE,none,Standard retail bank customer
+ACC_RET_0150,legit,NONE,none,Standard retail bank customer
+ACC_RET_0151,legit,NONE,none,Standard retail bank customer
+ACC_RET_0152,legit,NONE,none,Standard retail bank customer
+ACC_RET_0153,legit,NONE,none,Standard retail bank customer
+ACC_RET_0154,legit,NONE,none,Standard retail bank customer
+ACC_RET_0155,legit,NONE,none,Standard retail bank customer
+ACC_RET_0156,legit,NONE,none,Standard retail bank customer
+ACC_RET_0157,legit,NONE,none,Standard retail bank customer
+ACC_RET_0158,legit,NONE,none,Standard retail bank customer
+ACC_RET_0159,legit,NONE,none,Standard retail bank customer
+ACC_RET_0160,legit,NONE,none,Standard retail bank customer
+ACC_RET_0161,legit,NONE,none,Standard retail bank customer
+ACC_RET_0162,legit,NONE,none,Standard retail bank customer
+ACC_RET_0163,legit,NONE,none,Standard retail bank customer
+ACC_RET_0164,legit,NONE,none,Standard retail bank customer
+ACC_RET_0165,legit,NONE,none,Standard retail bank customer
+ACC_RET_0166,legit,NONE,none,Standard retail bank customer
+ACC_RET_0167,legit,NONE,none,Standard retail bank customer
+ACC_RET_0168,legit,NONE,none,Standard retail bank customer
+ACC_RET_0169,legit,NONE,none,Standard retail bank customer
+ACC_RET_0170,legit,NONE,none,Standard retail bank customer
+ACC_RET_0171,legit,NONE,none,Standard retail bank customer
+ACC_RET_0172,legit,NONE,none,Standard retail bank customer
+ACC_RET_0173,legit,NONE,none,Standard retail bank customer
+ACC_RET_0174,legit,NONE,none,Standard retail bank customer
+ACC_RET_0175,legit,NONE,none,Standard retail bank customer
+ACC_RET_0176,legit,NONE,none,Standard retail bank customer
+ACC_RET_0177,legit,NONE,none,Standard retail bank customer
+ACC_RET_0178,legit,NONE,none,Standard retail bank customer
+ACC_RET_0179,legit,NONE,none,Standard retail bank customer
+ACC_RET_0180,legit,NONE,none,Standard retail bank customer
+ACC_RET_0181,legit,NONE,none,Standard retail bank customer
+ACC_RET_0182,legit,NONE,none,Standard retail bank customer
+ACC_RET_0183,legit,NONE,none,Standard retail bank customer
+ACC_RET_0184,legit,NONE,none,Standard retail bank customer
+ACC_RET_0185,legit,NONE,none,Standard retail bank customer
+ACC_RET_0186,legit,NONE,none,Standard retail bank customer
+ACC_RET_0187,legit,NONE,none,Standard retail bank customer
+ACC_RET_0188,legit,NONE,none,Standard retail bank customer
+ACC_RET_0189,legit,NONE,none,Standard retail bank customer
+ACC_RET_0190,legit,NONE,none,Standard retail bank customer
+ACC_RET_0191,legit,NONE,none,Standard retail bank customer
+ACC_RET_0192,legit,NONE,none,Standard retail bank customer
+ACC_RET_0193,legit,NONE,none,Standard retail bank customer
+ACC_RET_0194,legit,NONE,none,Standard retail bank customer
+ACC_RET_0195,legit,NONE,none,Standard retail bank customer
+ACC_RET_0196,legit,NONE,none,Standard retail bank customer
+ACC_RET_0197,legit,NONE,none,Standard retail bank customer
+ACC_RET_0198,legit,NONE,none,Standard retail bank customer
+ACC_RET_0199,legit,NONE,none,Standard retail bank customer
+ACC_RET_0200,legit,NONE,none,Standard retail bank customer
+ACC_RET_0201,legit,NONE,none,Standard retail bank customer
+ACC_RET_0202,legit,NONE,none,Standard retail bank customer
+ACC_RET_0203,legit,NONE,none,Standard retail bank customer
+ACC_RET_0204,legit,NONE,none,Standard retail bank customer
+ACC_RET_0205,legit,NONE,none,Standard retail bank customer
+ACC_RET_0206,legit,NONE,none,Standard retail bank customer
+ACC_RET_0207,legit,NONE,none,Standard retail bank customer
+ACC_RET_0208,legit,NONE,none,Standard retail bank customer
+ACC_RET_0209,legit,NONE,none,Standard retail bank customer
+ACC_RET_0210,legit,NONE,none,Standard retail bank customer
+ACC_RET_0211,legit,NONE,none,Standard retail bank customer
+ACC_RET_0212,legit,NONE,none,Standard retail bank customer
+ACC_RET_0213,legit,NONE,none,Standard retail bank customer
+ACC_RET_0214,legit,NONE,none,Standard retail bank customer
+ACC_RET_0215,legit,NONE,none,Standard retail bank customer
+ACC_RET_0216,legit,NONE,none,Standard retail bank customer
+ACC_RET_0217,legit,NONE,none,Standard retail bank customer
+ACC_RET_0218,legit,NONE,none,Standard retail bank customer
+ACC_RET_0219,legit,NONE,none,Standard retail bank customer
+ACC_RET_0220,legit,NONE,none,Standard retail bank customer
+ACC_RET_0221,legit,NONE,none,Standard retail bank customer
+ACC_RET_0222,legit,NONE,none,Standard retail bank customer
+ACC_RET_0223,legit,NONE,none,Standard retail bank customer
+ACC_RET_0224,legit,NONE,none,Standard retail bank customer
+ACC_RET_0225,legit,NONE,none,Standard retail bank customer
+ACC_RET_0226,legit,NONE,none,Standard retail bank customer
+ACC_RET_0227,legit,NONE,none,Standard retail bank customer
+ACC_RET_0228,legit,NONE,none,Standard retail bank customer
+ACC_RET_0229,legit,NONE,none,Standard retail bank customer
+ACC_RET_0230,legit,NONE,none,Standard retail bank customer
+ACC_RET_0231,legit,NONE,none,Standard retail bank customer
+ACC_RET_0232,legit,NONE,none,Standard retail bank customer
+ACC_RET_0233,legit,NONE,none,Standard retail bank customer
+ACC_RET_0234,legit,NONE,none,Standard retail bank customer
+ACC_RET_0235,legit,NONE,none,Standard retail bank customer
+ACC_RET_0236,legit,NONE,none,Standard retail bank customer
+ACC_RET_0237,legit,NONE,none,Standard retail bank customer
+ACC_RET_0238,legit,NONE,none,Standard retail bank customer
+ACC_RET_0239,legit,NONE,none,Standard retail bank customer
+ACC_RET_0240,legit,NONE,none,Standard retail bank customer
+ACC_RET_0241,legit,NONE,none,Standard retail bank customer
+ACC_RET_0242,legit,NONE,none,Standard retail bank customer
+ACC_RET_0243,legit,NONE,none,Standard retail bank customer
+ACC_RET_0244,legit,NONE,none,Standard retail bank customer
+ACC_RET_0245,legit,NONE,none,Standard retail bank customer
+ACC_RET_0246,legit,NONE,none,Standard retail bank customer
+ACC_RET_0247,legit,NONE,none,Standard retail bank customer
+ACC_RET_0248,legit,NONE,none,Standard retail bank customer
+ACC_RET_0249,legit,NONE,none,Standard retail bank customer
+ACC_RET_0250,legit,NONE,none,Standard retail bank customer
+ACC_RET_0251,legit,NONE,none,Standard retail bank customer
+ACC_RET_0252,legit,NONE,none,Standard retail bank customer
+ACC_RET_0253,legit,NONE,none,Standard retail bank customer
+ACC_RET_0254,legit,NONE,none,Standard retail bank customer
+ACC_RET_0255,legit,NONE,none,Standard retail bank customer
+ACC_RET_0256,legit,NONE,none,Standard retail bank customer
+ACC_RET_0257,legit,NONE,none,Standard retail bank customer
+ACC_RET_0258,legit,NONE,none,Standard retail bank customer
+ACC_RET_0259,legit,NONE,none,Standard retail bank customer
+ACC_RET_0260,legit,NONE,none,Standard retail bank customer
+ACC_RET_0261,legit,NONE,none,Standard retail bank customer
+ACC_RET_0262,legit,NONE,none,Standard retail bank customer
+ACC_RET_0263,legit,NONE,none,Standard retail bank customer
+ACC_RET_0264,legit,NONE,none,Standard retail bank customer
+ACC_RET_0265,legit,NONE,none,Standard retail bank customer
+ACC_RET_0266,legit,NONE,none,Standard retail bank customer
+ACC_RET_0267,legit,NONE,none,Standard retail bank customer
+ACC_RET_0268,legit,NONE,none,Standard retail bank customer
+ACC_RET_0269,legit,NONE,none,Standard retail bank customer
+ACC_RET_0270,legit,NONE,none,Standard retail bank customer
+ACC_RET_0271,legit,NONE,none,Standard retail bank customer
+ACC_RET_0272,legit,NONE,none,Standard retail bank customer
+ACC_RET_0273,legit,NONE,none,Standard retail bank customer
+ACC_RET_0274,legit,NONE,none,Standard retail bank customer
+ACC_RET_0275,legit,NONE,none,Standard retail bank customer
+ACC_RET_0276,legit,NONE,none,Standard retail bank customer
+ACC_RET_0277,legit,NONE,none,Standard retail bank customer
+ACC_RET_0278,legit,NONE,none,Standard retail bank customer
+ACC_RET_0279,legit,NONE,none,Standard retail bank customer
+ACC_RET_0280,legit,NONE,none,Standard retail bank customer
+ACC_RET_0281,legit,NONE,none,Standard retail bank customer
+ACC_RET_0282,legit,NONE,none,Standard retail bank customer
+ACC_RET_0283,legit,NONE,none,Standard retail bank customer
+ACC_RET_0284,legit,NONE,none,Standard retail bank customer
+ACC_RET_0285,legit,NONE,none,Standard retail bank customer
+ACC_RET_0286,legit,NONE,none,Standard retail bank customer
+ACC_RET_0287,legit,NONE,none,Standard retail bank customer
+ACC_RET_0288,legit,NONE,none,Standard retail bank customer
+ACC_RET_0289,legit,NONE,none,Standard retail bank customer
+ACC_RET_0290,legit,NONE,none,Standard retail bank customer
+ACC_RET_0291,legit,NONE,none,Standard retail bank customer
+ACC_RET_0292,legit,NONE,none,Standard retail bank customer
+ACC_RET_0293,legit,NONE,none,Standard retail bank customer
+ACC_RET_0294,legit,NONE,none,Standard retail bank customer
+ACC_RET_0295,legit,NONE,none,Standard retail bank customer
+ACC_RET_0296,legit,NONE,none,Standard retail bank customer
+ACC_RET_0297,legit,NONE,none,Standard retail bank customer
+ACC_RET_0298,legit,NONE,none,Standard retail bank customer
+ACC_RET_0299,legit,NONE,none,Standard retail bank customer
+ACC_RET_0300,legit,NONE,none,Standard retail bank customer
+ACC_RET_0301,legit,NONE,none,Standard retail bank customer
+ACC_RET_0302,legit,NONE,none,Standard retail bank customer
+ACC_RET_0303,legit,NONE,none,Standard retail bank customer
+ACC_RET_0304,legit,NONE,none,Standard retail bank customer
+ACC_RET_0305,legit,NONE,none,Standard retail bank customer
+ACC_RET_0306,legit,NONE,none,Standard retail bank customer
+ACC_RET_0307,legit,NONE,none,Standard retail bank customer
+ACC_RET_0308,legit,NONE,none,Standard retail bank customer
+ACC_RET_0309,legit,NONE,none,Standard retail bank customer
+ACC_RET_0310,legit,NONE,none,Standard retail bank customer
+ACC_RET_0311,legit,NONE,none,Standard retail bank customer
+ACC_RET_0312,legit,NONE,none,Standard retail bank customer
+ACC_RET_0313,legit,NONE,none,Standard retail bank customer
+ACC_RET_0314,legit,NONE,none,Standard retail bank customer
+ACC_RET_0315,legit,NONE,none,Standard retail bank customer
+ACC_RET_0316,legit,NONE,none,Standard retail bank customer
+ACC_RET_0317,legit,NONE,none,Standard retail bank customer
+ACC_RET_0318,legit,NONE,none,Standard retail bank customer
+ACC_RET_0319,legit,NONE,none,Standard retail bank customer
+ACC_RET_0320,legit,NONE,none,Standard retail bank customer
+ACC_RET_0321,legit,NONE,none,Standard retail bank customer
+ACC_RET_0322,legit,NONE,none,Standard retail bank customer
+ACC_RET_0323,legit,NONE,none,Standard retail bank customer
+ACC_RET_0324,legit,NONE,none,Standard retail bank customer
+ACC_RET_0325,legit,NONE,none,Standard retail bank customer
+ACC_RET_0326,legit,NONE,none,Standard retail bank customer
+ACC_RET_0327,legit,NONE,none,Standard retail bank customer
+ACC_RET_0328,legit,NONE,none,Standard retail bank customer
+ACC_RET_0329,legit,NONE,none,Standard retail bank customer
+ACC_RET_0330,legit,NONE,none,Standard retail bank customer
+ACC_RET_0331,legit,NONE,none,Standard retail bank customer
+ACC_RET_0332,legit,NONE,none,Standard retail bank customer
+ACC_RET_0333,legit,NONE,none,Standard retail bank customer
+ACC_RET_0334,legit,NONE,none,Standard retail bank customer
+ACC_RET_0335,legit,NONE,none,Standard retail bank customer
+ACC_RET_0336,legit,NONE,none,Standard retail bank customer
+ACC_RET_0337,legit,NONE,none,Standard retail bank customer
+ACC_RET_0338,legit,NONE,none,Standard retail bank customer
+ACC_RET_0339,legit,NONE,none,Standard retail bank customer
+ACC_RET_0340,legit,NONE,none,Standard retail bank customer
+ACC_RET_0341,legit,NONE,none,Standard retail bank customer
+ACC_RET_0342,legit,NONE,none,Standard retail bank customer
+ACC_RET_0343,legit,NONE,none,Standard retail bank customer
+ACC_RET_0344,legit,NONE,none,Standard retail bank customer
+ACC_RET_0345,legit,NONE,none,Standard retail bank customer
+ACC_RET_0346,legit,NONE,none,Standard retail bank customer
+ACC_RET_0347,legit,NONE,none,Standard retail bank customer
+ACC_RET_0348,legit,NONE,none,Standard retail bank customer
+ACC_RET_0349,legit,NONE,none,Standard retail bank customer
+ACC_RET_0350,legit,NONE,none,Standard retail bank customer
+ACC_RET_0351,legit,NONE,none,Standard retail bank customer
+ACC_RET_0352,legit,NONE,none,Standard retail bank customer
+ACC_RET_0353,legit,NONE,none,Standard retail bank customer
+ACC_RET_0354,legit,NONE,none,Standard retail bank customer
+ACC_RET_0355,legit,NONE,none,Standard retail bank customer
+ACC_RET_0356,legit,NONE,none,Standard retail bank customer
+ACC_RET_0357,legit,NONE,none,Standard retail bank customer
+ACC_RET_0358,legit,NONE,none,Standard retail bank customer
+ACC_RET_0359,legit,NONE,none,Standard retail bank customer
+ACC_RET_0360,legit,NONE,none,Standard retail bank customer
+ACC_RET_0361,legit,NONE,none,Standard retail bank customer
+ACC_RET_0362,legit,NONE,none,Standard retail bank customer
+ACC_RET_0363,legit,NONE,none,Standard retail bank customer
+ACC_RET_0364,legit,NONE,none,Standard retail bank customer
+ACC_RET_0365,legit,NONE,none,Standard retail bank customer
+ACC_RET_0366,legit,NONE,none,Standard retail bank customer
+ACC_RET_0367,legit,NONE,none,Standard retail bank customer
+ACC_RET_0368,legit,NONE,none,Standard retail bank customer
+ACC_RET_0369,legit,NONE,none,Standard retail bank customer
+ACC_RET_0370,legit,NONE,none,Standard retail bank customer
+ACC_RET_0371,legit,NONE,none,Standard retail bank customer
+ACC_RET_0372,legit,NONE,none,Standard retail bank customer
+ACC_RET_0373,legit,NONE,none,Standard retail bank customer
+ACC_RET_0374,legit,NONE,none,Standard retail bank customer
+ACC_RET_0375,legit,NONE,none,Standard retail bank customer
+ACC_RET_0376,legit,NONE,none,Standard retail bank customer
+ACC_RET_0377,legit,NONE,none,Standard retail bank customer
+ACC_RET_0378,legit,NONE,none,Standard retail bank customer
+ACC_RET_0379,legit,NONE,none,Standard retail bank customer
+ACC_RET_0380,legit,NONE,none,Standard retail bank customer
+ACC_RET_0381,legit,NONE,none,Standard retail bank customer
+ACC_RET_0382,legit,NONE,none,Standard retail bank customer
+ACC_RET_0383,legit,NONE,none,Standard retail bank customer
+ACC_RET_0384,legit,NONE,none,Standard retail bank customer
+ACC_RET_0385,legit,NONE,none,Standard retail bank customer
+ACC_RET_0386,legit,NONE,none,Standard retail bank customer
+ACC_RET_0387,legit,NONE,none,Standard retail bank customer
+ACC_RET_0388,legit,NONE,none,Standard retail bank customer
+ACC_RET_0389,legit,NONE,none,Standard retail bank customer
+ACC_RET_0390,legit,NONE,none,Standard retail bank customer
+ACC_RET_0391,legit,NONE,none,Standard retail bank customer
+ACC_RET_0392,legit,NONE,none,Standard retail bank customer
+ACC_RET_0393,legit,NONE,none,Standard retail bank customer
+ACC_RET_0394,legit,NONE,none,Standard retail bank customer
+ACC_RET_0395,legit,NONE,none,Standard retail bank customer
+ACC_RET_0396,legit,NONE,none,Standard retail bank customer
+ACC_RET_0397,legit,NONE,none,Standard retail bank customer
+ACC_RET_0398,legit,NONE,none,Standard retail bank customer
+ACC_RET_0399,legit,NONE,none,Standard retail bank customer
+ACC_RET_0400,legit,NONE,none,Standard retail bank customer
+ACC_RET_0401,legit,NONE,none,Standard retail bank customer
+ACC_RET_0402,legit,NONE,none,Standard retail bank customer
+ACC_RET_0403,legit,NONE,none,Standard retail bank customer
+ACC_RET_0404,legit,NONE,none,Standard retail bank customer
+ACC_RET_0405,legit,NONE,none,Standard retail bank customer
+ACC_RET_0406,legit,NONE,none,Standard retail bank customer
+ACC_RET_0407,legit,NONE,none,Standard retail bank customer
+ACC_RET_0408,legit,NONE,none,Standard retail bank customer
+ACC_RET_0409,legit,NONE,none,Standard retail bank customer
+ACC_RET_0410,legit,NONE,none,Standard retail bank customer
+ACC_RET_0411,legit,NONE,none,Standard retail bank customer
+ACC_RET_0412,legit,NONE,none,Standard retail bank customer
+ACC_RET_0413,legit,NONE,none,Standard retail bank customer
+ACC_RET_0414,legit,NONE,none,Standard retail bank customer
+ACC_RET_0415,legit,NONE,none,Standard retail bank customer
+ACC_RET_0416,legit,NONE,none,Standard retail bank customer
+ACC_RET_0417,legit,NONE,none,Standard retail bank customer
+ACC_RET_0418,legit,NONE,none,Standard retail bank customer
+ACC_RET_0419,legit,NONE,none,Standard retail bank customer
+ACC_RET_0420,legit,NONE,none,Standard retail bank customer
+ACC_RET_0421,legit,NONE,none,Standard retail bank customer
+ACC_RET_0422,legit,NONE,none,Standard retail bank customer
+ACC_RET_0423,legit,NONE,none,Standard retail bank customer
+ACC_RET_0424,legit,NONE,none,Standard retail bank customer
+ACC_RET_0425,legit,NONE,none,Standard retail bank customer
+ACC_RET_0426,legit,NONE,none,Standard retail bank customer
+ACC_RET_0427,legit,NONE,none,Standard retail bank customer
+ACC_RET_0428,legit,NONE,none,Standard retail bank customer
+ACC_RET_0429,legit,NONE,none,Standard retail bank customer
+ACC_RET_0430,legit,NONE,none,Standard retail bank customer
+ACC_RET_0431,legit,NONE,none,Standard retail bank customer
+ACC_RET_0432,legit,NONE,none,Standard retail bank customer
+ACC_RET_0433,legit,NONE,none,Standard retail bank customer
+ACC_RET_0434,legit,NONE,none,Standard retail bank customer
+ACC_RET_0435,legit,NONE,none,Standard retail bank customer
+ACC_RET_0436,legit,NONE,none,Standard retail bank customer
+ACC_RET_0437,legit,NONE,none,Standard retail bank customer
+ACC_RET_0438,legit,NONE,none,Standard retail bank customer
+ACC_RET_0439,legit,NONE,none,Standard retail bank customer
+ACC_RET_0440,legit,NONE,none,Standard retail bank customer
+ACC_RET_0441,legit,NONE,none,Standard retail bank customer
+ACC_RET_0442,legit,NONE,none,Standard retail bank customer
+ACC_RET_0443,legit,NONE,none,Standard retail bank customer
+ACC_RET_0444,legit,NONE,none,Standard retail bank customer
+ACC_RET_0445,legit,NONE,none,Standard retail bank customer
+ACC_RET_0446,legit,NONE,none,Standard retail bank customer
+ACC_RET_0447,legit,NONE,none,Standard retail bank customer
+ACC_RET_0448,legit,NONE,none,Standard retail bank customer
+ACC_RET_0449,legit,NONE,none,Standard retail bank customer
+ACC_RET_0450,legit,NONE,none,Standard retail bank customer
+ACC_RET_0451,legit,NONE,none,Standard retail bank customer
+ACC_RET_0452,legit,NONE,none,Standard retail bank customer
+ACC_RET_0453,legit,NONE,none,Standard retail bank customer
+ACC_RET_0454,legit,NONE,none,Standard retail bank customer
+ACC_RET_0455,legit,NONE,none,Standard retail bank customer
+ACC_RET_0456,legit,NONE,none,Standard retail bank customer
+ACC_RET_0457,legit,NONE,none,Standard retail bank customer
+ACC_RET_0458,legit,NONE,none,Standard retail bank customer
+ACC_RET_0459,legit,NONE,none,Standard retail bank customer
+ACC_RET_0460,legit,NONE,none,Standard retail bank customer
+ACC_RET_0461,legit,NONE,none,Standard retail bank customer
+ACC_RET_0462,legit,NONE,none,Standard retail bank customer
+ACC_RET_0463,legit,NONE,none,Standard retail bank customer
+ACC_RET_0464,legit,NONE,none,Standard retail bank customer
+ACC_RET_0465,legit,NONE,none,Standard retail bank customer
+ACC_RET_0466,legit,NONE,none,Standard retail bank customer
+ACC_RET_0467,legit,NONE,none,Standard retail bank customer
+ACC_RET_0468,legit,NONE,none,Standard retail bank customer
+ACC_RET_0469,legit,NONE,none,Standard retail bank customer
+ACC_RET_0470,legit,NONE,none,Standard retail bank customer
+ACC_RET_0471,legit,NONE,none,Standard retail bank customer
+ACC_RET_0472,legit,NONE,none,Standard retail bank customer
+ACC_RET_0473,legit,NONE,none,Standard retail bank customer
+ACC_RET_0474,legit,NONE,none,Standard retail bank customer
+ACC_RET_0475,legit,NONE,none,Standard retail bank customer
+ACC_RET_0476,legit,NONE,none,Standard retail bank customer
+ACC_RET_0477,legit,NONE,none,Standard retail bank customer
+ACC_RET_0478,legit,NONE,none,Standard retail bank customer
+ACC_RET_0479,legit,NONE,none,Standard retail bank customer
+ACC_RET_0480,legit,NONE,none,Standard retail bank customer
+ACC_RET_0481,legit,NONE,none,Standard retail bank customer
+ACC_RET_0482,legit,NONE,none,Standard retail bank customer
+ACC_RET_0483,legit,NONE,none,Standard retail bank customer
+ACC_RET_0484,legit,NONE,none,Standard retail bank customer
+ACC_RET_0485,legit,NONE,none,Standard retail bank customer
+ACC_RET_0486,legit,NONE,none,Standard retail bank customer
+ACC_RET_0487,legit,NONE,none,Standard retail bank customer
+ACC_RET_0488,legit,NONE,none,Standard retail bank customer
+ACC_RET_0489,legit,NONE,none,Standard retail bank customer
+ACC_RET_0490,legit,NONE,none,Standard retail bank customer
+ACC_RET_0491,legit,NONE,none,Standard retail bank customer
+ACC_RET_0492,legit,NONE,none,Standard retail bank customer
+ACC_RET_0493,legit,NONE,none,Standard retail bank customer
+ACC_RET_0494,legit,NONE,none,Standard retail bank customer
+ACC_RET_0495,legit,NONE,none,Standard retail bank customer
+ACC_RET_0496,legit,NONE,none,Standard retail bank customer
+ACC_RET_0497,legit,NONE,none,Standard retail bank customer
+ACC_RET_0498,legit,NONE,none,Standard retail bank customer
+ACC_RET_0499,legit,NONE,none,Standard retail bank customer
+ACC_RET_0500,legit,NONE,none,Standard retail bank customer
+ACC_RET_0501,legit,NONE,none,Standard retail bank customer
+ACC_RET_0502,legit,NONE,none,Standard retail bank customer
+ACC_RET_0503,legit,NONE,none,Standard retail bank customer
+ACC_RET_0504,legit,NONE,none,Standard retail bank customer
+ACC_RET_0505,legit,NONE,none,Standard retail bank customer
+ACC_RET_0506,legit,NONE,none,Standard retail bank customer
+ACC_RET_0507,legit,NONE,none,Standard retail bank customer
+ACC_RET_0508,legit,NONE,none,Standard retail bank customer
+ACC_RET_0509,legit,NONE,none,Standard retail bank customer
+ACC_RET_0510,legit,NONE,none,Standard retail bank customer
+ACC_RET_0511,legit,NONE,none,Standard retail bank customer
+ACC_RET_0512,legit,NONE,none,Standard retail bank customer
+ACC_RET_0513,legit,NONE,none,Standard retail bank customer
+ACC_RET_0514,legit,NONE,none,Standard retail bank customer
+ACC_RET_0515,legit,NONE,none,Standard retail bank customer
+ACC_RET_0516,legit,NONE,none,Standard retail bank customer
+ACC_RET_0517,legit,NONE,none,Standard retail bank customer
+ACC_RET_0518,legit,NONE,none,Standard retail bank customer
+ACC_RET_0519,legit,NONE,none,Standard retail bank customer
+ACC_RET_0520,legit,NONE,none,Standard retail bank customer
+ACC_RET_0521,legit,NONE,none,Standard retail bank customer
+ACC_RET_0522,legit,NONE,none,Standard retail bank customer
+ACC_RET_0523,legit,NONE,none,Standard retail bank customer
+ACC_RET_0524,legit,NONE,none,Standard retail bank customer
+ACC_RET_0525,legit,NONE,none,Standard retail bank customer
+ACC_RET_0526,legit,NONE,none,Standard retail bank customer
+ACC_RET_0527,legit,NONE,none,Standard retail bank customer
+ACC_RET_0528,legit,NONE,none,Standard retail bank customer
+ACC_RET_0529,legit,NONE,none,Standard retail bank customer
+ACC_RET_0530,legit,NONE,none,Standard retail bank customer
+ACC_RET_0531,legit,NONE,none,Standard retail bank customer
+ACC_RET_0532,legit,NONE,none,Standard retail bank customer
+ACC_RET_0533,legit,NONE,none,Standard retail bank customer
+ACC_RET_0534,legit,NONE,none,Standard retail bank customer
+ACC_RET_0535,legit,NONE,none,Standard retail bank customer
+ACC_RET_0536,legit,NONE,none,Standard retail bank customer
+ACC_RET_0537,legit,NONE,none,Standard retail bank customer
+ACC_RET_0538,legit,NONE,none,Standard retail bank customer
+ACC_RET_0539,legit,NONE,none,Standard retail bank customer
+ACC_RET_0540,legit,NONE,none,Standard retail bank customer
+ACC_RET_0541,legit,NONE,none,Standard retail bank customer
+ACC_RET_0542,legit,NONE,none,Standard retail bank customer
+ACC_RET_0543,legit,NONE,none,Standard retail bank customer
+ACC_RET_0544,legit,NONE,none,Standard retail bank customer
+ACC_RET_0545,legit,NONE,none,Standard retail bank customer
+ACC_RET_0546,legit,NONE,none,Standard retail bank customer
+ACC_RET_0547,legit,NONE,none,Standard retail bank customer
+ACC_RET_0548,legit,NONE,none,Standard retail bank customer
+ACC_RET_0549,legit,NONE,none,Standard retail bank customer
+ACC_RET_0550,legit,NONE,none,Standard retail bank customer
+ACC_RET_0551,legit,NONE,none,Standard retail bank customer
+ACC_RET_0552,legit,NONE,none,Standard retail bank customer
+ACC_RET_0553,legit,NONE,none,Standard retail bank customer
+ACC_RET_0554,legit,NONE,none,Standard retail bank customer
+ACC_RET_0555,legit,NONE,none,Standard retail bank customer
+ACC_RET_0556,legit,NONE,none,Standard retail bank customer
+ACC_RET_0557,legit,NONE,none,Standard retail bank customer
+ACC_RET_0558,legit,NONE,none,Standard retail bank customer
+ACC_RET_0559,legit,NONE,none,Standard retail bank customer
+ACC_RET_0560,legit,NONE,none,Standard retail bank customer
+ACC_RET_0561,legit,NONE,none,Standard retail bank customer
+ACC_RET_0562,legit,NONE,none,Standard retail bank customer
+ACC_RET_0563,legit,NONE,none,Standard retail bank customer
+ACC_RET_0564,legit,NONE,none,Standard retail bank customer
+ACC_RET_0565,legit,NONE,none,Standard retail bank customer
+ACC_RET_0566,legit,NONE,none,Standard retail bank customer
+ACC_RET_0567,legit,NONE,none,Standard retail bank customer
+ACC_RET_0568,legit,NONE,none,Standard retail bank customer
+ACC_RET_0569,legit,NONE,none,Standard retail bank customer
+ACC_RET_0570,legit,NONE,none,Standard retail bank customer
+ACC_RET_0571,legit,NONE,none,Standard retail bank customer
+ACC_RET_0572,legit,NONE,none,Standard retail bank customer
+ACC_RET_0573,legit,NONE,none,Standard retail bank customer
+ACC_RET_0574,legit,NONE,none,Standard retail bank customer
+ACC_RET_0575,legit,NONE,none,Standard retail bank customer
+ACC_RET_0576,legit,NONE,none,Standard retail bank customer
+ACC_RET_0577,legit,NONE,none,Standard retail bank customer
+ACC_RET_0578,legit,NONE,none,Standard retail bank customer
+ACC_RET_0579,legit,NONE,none,Standard retail bank customer
+ACC_RET_0580,legit,NONE,none,Standard retail bank customer
+ACC_RET_0581,legit,NONE,none,Standard retail bank customer
+ACC_RET_0582,legit,NONE,none,Standard retail bank customer
+ACC_RET_0583,legit,NONE,none,Standard retail bank customer
+ACC_RET_0584,legit,NONE,none,Standard retail bank customer
+ACC_RET_0585,legit,NONE,none,Standard retail bank customer
+ACC_RET_0586,legit,NONE,none,Standard retail bank customer
+ACC_RET_0587,legit,NONE,none,Standard retail bank customer
+ACC_RET_0588,legit,NONE,none,Standard retail bank customer
+ACC_RET_0589,legit,NONE,none,Standard retail bank customer
+ACC_RET_0590,legit,NONE,none,Standard retail bank customer
+ACC_RET_0591,legit,NONE,none,Standard retail bank customer
+ACC_RET_0592,legit,NONE,none,Standard retail bank customer
+ACC_RET_0593,legit,NONE,none,Standard retail bank customer
+ACC_RET_0594,legit,NONE,none,Standard retail bank customer
+ACC_RET_0595,legit,NONE,none,Standard retail bank customer
+ACC_RET_0596,legit,NONE,none,Standard retail bank customer
+ACC_RET_0597,legit,NONE,none,Standard retail bank customer
+ACC_RET_0598,legit,NONE,none,Standard retail bank customer
+ACC_RET_0599,legit,NONE,none,Standard retail bank customer
+ACC_RET_0600,legit,NONE,none,Standard retail bank customer
+ACC_RET_0601,legit,NONE,none,Standard retail bank customer
+ACC_RET_0602,legit,NONE,none,Standard retail bank customer
+ACC_RET_0603,legit,NONE,none,Standard retail bank customer
+ACC_RET_0604,legit,NONE,none,Standard retail bank customer
+ACC_RET_0605,legit,NONE,none,Standard retail bank customer
+ACC_RET_0606,legit,NONE,none,Standard retail bank customer
+ACC_RET_0607,legit,NONE,none,Standard retail bank customer
+ACC_RET_0608,legit,NONE,none,Standard retail bank customer
+ACC_RET_0609,legit,NONE,none,Standard retail bank customer
+ACC_RET_0610,legit,NONE,none,Standard retail bank customer
+ACC_RET_0611,legit,NONE,none,Standard retail bank customer
+ACC_RET_0612,legit,NONE,none,Standard retail bank customer
+ACC_RET_0613,legit,NONE,none,Standard retail bank customer
+ACC_RET_0614,legit,NONE,none,Standard retail bank customer
+ACC_RET_0615,legit,NONE,none,Standard retail bank customer
+ACC_RET_0616,legit,NONE,none,Standard retail bank customer
+ACC_RET_0617,legit,NONE,none,Standard retail bank customer
+ACC_RET_0618,legit,NONE,none,Standard retail bank customer
+ACC_RET_0619,legit,NONE,none,Standard retail bank customer
+ACC_RET_0620,legit,NONE,none,Standard retail bank customer
+ACC_RET_0621,legit,NONE,none,Standard retail bank customer
+ACC_RET_0622,legit,NONE,none,Standard retail bank customer
+ACC_RET_0623,legit,NONE,none,Standard retail bank customer
+ACC_RET_0624,legit,NONE,none,Standard retail bank customer
+ACC_RET_0625,legit,NONE,none,Standard retail bank customer
+ACC_RET_0626,legit,NONE,none,Standard retail bank customer
+ACC_RET_0627,legit,NONE,none,Standard retail bank customer
+ACC_RET_0628,legit,NONE,none,Standard retail bank customer
+ACC_RET_0629,legit,NONE,none,Standard retail bank customer
+ACC_RET_0630,legit,NONE,none,Standard retail bank customer
+ACC_RET_0631,legit,NONE,none,Standard retail bank customer
+ACC_RET_0632,legit,NONE,none,Standard retail bank customer
+ACC_RET_0633,legit,NONE,none,Standard retail bank customer
+ACC_RET_0634,legit,NONE,none,Standard retail bank customer
+ACC_RET_0635,legit,NONE,none,Standard retail bank customer
+ACC_RET_0636,legit,NONE,none,Standard retail bank customer
+ACC_RET_0637,legit,NONE,none,Standard retail bank customer
+ACC_RET_0638,legit,NONE,none,Standard retail bank customer
+ACC_RET_0639,legit,NONE,none,Standard retail bank customer
+ACC_RET_0640,legit,NONE,none,Standard retail bank customer
+ACC_RET_0641,legit,NONE,none,Standard retail bank customer
+ACC_RET_0642,legit,NONE,none,Standard retail bank customer
+ACC_RET_0643,legit,NONE,none,Standard retail bank customer
+ACC_RET_0644,legit,NONE,none,Standard retail bank customer
+ACC_RET_0645,legit,NONE,none,Standard retail bank customer
+ACC_RET_0646,legit,NONE,none,Standard retail bank customer
+ACC_RET_0647,legit,NONE,none,Standard retail bank customer
+ACC_RET_0648,legit,NONE,none,Standard retail bank customer
+ACC_RET_0649,legit,NONE,none,Standard retail bank customer
+ACC_RET_0650,legit,NONE,none,Standard retail bank customer
+ACC_RET_0651,legit,NONE,none,Standard retail bank customer
+ACC_RET_0652,legit,NONE,none,Standard retail bank customer
+ACC_RET_0653,legit,NONE,none,Standard retail bank customer
+ACC_RET_0654,legit,NONE,none,Standard retail bank customer
+ACC_RET_0655,legit,NONE,none,Standard retail bank customer
+ACC_RET_0656,legit,NONE,none,Standard retail bank customer
+ACC_RET_0657,legit,NONE,none,Standard retail bank customer
+ACC_RET_0658,legit,NONE,none,Standard retail bank customer
+ACC_RET_0659,legit,NONE,none,Standard retail bank customer
+ACC_RET_0660,legit,NONE,none,Standard retail bank customer
+ACC_RET_0661,legit,NONE,none,Standard retail bank customer
+ACC_RET_0662,legit,NONE,none,Standard retail bank customer
+ACC_RET_0663,legit,NONE,none,Standard retail bank customer
+ACC_RET_0664,legit,NONE,none,Standard retail bank customer
+ACC_RET_0665,legit,NONE,none,Standard retail bank customer
+ACC_RET_0666,legit,NONE,none,Standard retail bank customer
+ACC_RET_0667,legit,NONE,none,Standard retail bank customer
+ACC_RET_0668,legit,NONE,none,Standard retail bank customer
+ACC_RET_0669,legit,NONE,none,Standard retail bank customer
+ACC_RET_0670,legit,NONE,none,Standard retail bank customer
+ACC_RET_0671,legit,NONE,none,Standard retail bank customer
+ACC_RET_0672,legit,NONE,none,Standard retail bank customer
+ACC_RET_0673,legit,NONE,none,Standard retail bank customer
+ACC_RET_0674,legit,NONE,none,Standard retail bank customer
+ACC_RET_0675,legit,NONE,none,Standard retail bank customer
+ACC_RET_0676,legit,NONE,none,Standard retail bank customer
+ACC_RET_0677,legit,NONE,none,Standard retail bank customer
+ACC_RET_0678,legit,NONE,none,Standard retail bank customer
+ACC_RET_0679,legit,NONE,none,Standard retail bank customer
+ACC_RET_0680,legit,NONE,none,Standard retail bank customer
+ACC_RET_0681,legit,NONE,none,Standard retail bank customer
+ACC_RET_0682,legit,NONE,none,Standard retail bank customer
+ACC_RET_0683,legit,NONE,none,Standard retail bank customer
+ACC_RET_0684,legit,NONE,none,Standard retail bank customer
+ACC_RET_0685,legit,NONE,none,Standard retail bank customer
+ACC_RET_0686,legit,NONE,none,Standard retail bank customer
+ACC_RET_0687,legit,NONE,none,Standard retail bank customer
+ACC_RET_0688,legit,NONE,none,Standard retail bank customer
+ACC_RET_0689,legit,NONE,none,Standard retail bank customer
+ACC_RET_0690,legit,NONE,none,Standard retail bank customer
+ACC_RET_0691,legit,NONE,none,Standard retail bank customer
+ACC_RET_0692,legit,NONE,none,Standard retail bank customer
+ACC_RET_0693,legit,NONE,none,Standard retail bank customer
+ACC_RET_0694,legit,NONE,none,Standard retail bank customer
+ACC_RET_0695,legit,NONE,none,Standard retail bank customer
+ACC_RET_0696,legit,NONE,none,Standard retail bank customer
+ACC_RET_0697,legit,NONE,none,Standard retail bank customer
+ACC_RET_0698,legit,NONE,none,Standard retail bank customer
+ACC_RET_0699,legit,NONE,none,Standard retail bank customer
+ACC_RET_0700,legit,NONE,none,Standard retail bank customer
+ACC_RET_0701,legit,NONE,none,Standard retail bank customer
+ACC_RET_0702,legit,NONE,none,Standard retail bank customer
+ACC_RET_0703,legit,NONE,none,Standard retail bank customer
+ACC_RET_0704,legit,NONE,none,Standard retail bank customer
+ACC_RET_0705,legit,NONE,none,Standard retail bank customer
+ACC_RET_0706,legit,NONE,none,Standard retail bank customer
+ACC_RET_0707,legit,NONE,none,Standard retail bank customer
+ACC_RET_0708,legit,NONE,none,Standard retail bank customer
+ACC_RET_0709,legit,NONE,none,Standard retail bank customer
+ACC_RET_0710,legit,NONE,none,Standard retail bank customer
+ACC_RET_0711,legit,NONE,none,Standard retail bank customer
+ACC_RET_0712,legit,NONE,none,Standard retail bank customer
+ACC_RET_0713,legit,NONE,none,Standard retail bank customer
+ACC_RET_0714,legit,NONE,none,Standard retail bank customer
+ACC_RET_0715,legit,NONE,none,Standard retail bank customer
+ACC_RET_0716,legit,NONE,none,Standard retail bank customer
+ACC_RET_0717,legit,NONE,none,Standard retail bank customer
+ACC_RET_0718,legit,NONE,none,Standard retail bank customer
+ACC_RET_0719,legit,NONE,none,Standard retail bank customer
+ACC_RET_0720,legit,NONE,none,Standard retail bank customer
+ACC_STORY_EXIT_01,exit,RING_R5_SCAM_STORY,story,R5: Final cash extraction point 1
+ACC_STORY_EXIT_02,exit,RING_R5_SCAM_STORY,story,R5: Final cash extraction point 2
+ACC_STORY_EXIT_03,exit,RING_R5_SCAM_STORY,story,R5: Final cash extraction point 3
+ACC_STORY_L1_01,mule,RING_R5_SCAM_STORY,story,R5: Primary ingestion mule receiving direct victim transfer
+ACC_STORY_L2_01,mule,RING_R5_SCAM_STORY,story,R5: Intermediate fan-out dispersal mule 1
+ACC_STORY_L2_02,mule,RING_R5_SCAM_STORY,story,R5: Intermediate fan-out dispersal mule 2
+ACC_STORY_L2_03,mule,RING_R5_SCAM_STORY,story,R5: Intermediate fan-out dispersal mule 3
+ACC_STORY_L3_01,mule,RING_R5_SCAM_STORY,story,R5: Micro-layer smurfing mule 1
+ACC_STORY_L3_02,mule,RING_R5_SCAM_STORY,story,R5: Micro-layer smurfing mule 2
+ACC_STORY_L3_03,mule,RING_R5_SCAM_STORY,story,R5: Micro-layer smurfing mule 3
+ACC_STORY_L3_04,mule,RING_R5_SCAM_STORY,story,R5: Micro-layer smurfing mule 4
+ACC_STORY_L3_05,mule,RING_R5_SCAM_STORY,story,R5: Micro-layer smurfing mule 5
+ACC_STORY_L3_06,mule,RING_R5_SCAM_STORY,story,R5: Micro-layer smurfing mule 6
+ACC_STUDENT_01,hard_negative,RING_L8_CAMPUS,campus_wifi,L8: Legitimate university students sharing campus Wi-Fi IP address; unique devices & PANs
+ACC_STUDENT_02,hard_negative,RING_L8_CAMPUS,campus_wifi,L8: Legitimate university students sharing campus Wi-Fi IP address; unique devices & PANs
+ACC_STUDENT_03,hard_negative,RING_L8_CAMPUS,campus_wifi,L8: Legitimate university students sharing campus Wi-Fi IP address; unique devices & PANs
+ACC_STUDENT_04,hard_negative,RING_L8_CAMPUS,campus_wifi,L8: Legitimate university students sharing campus Wi-Fi IP address; unique devices & PANs
+ACC_STUDENT_05,hard_negative,RING_L8_CAMPUS,campus_wifi,L8: Legitimate university students sharing campus Wi-Fi IP address; unique devices & PANs
+ACC_STUDENT_06,hard_negative,RING_L8_CAMPUS,campus_wifi,L8: Legitimate university students sharing campus Wi-Fi IP address; unique devices & PANs
+ACC_STUDENT_07,hard_negative,RING_L8_CAMPUS,campus_wifi,L8: Legitimate university students sharing campus Wi-Fi IP address; unique devices & PANs
+ACC_STUDENT_08,hard_negative,RING_L8_CAMPUS,campus_wifi,L8: Legitimate university students sharing campus Wi-Fi IP address; unique devices & PANs
+ACC_STUDENT_09,hard_negative,RING_L8_CAMPUS,campus_wifi,L8: Legitimate university students sharing campus Wi-Fi IP address; unique devices & PANs
+ACC_STUDENT_10,hard_negative,RING_L8_CAMPUS,campus_wifi,L8: Legitimate university students sharing campus Wi-Fi IP address; unique devices & PANs
+ACC_STUDENT_11,hard_negative,RING_L8_CAMPUS,campus_wifi,L8: Legitimate university students sharing campus Wi-Fi IP address; unique devices & PANs
+ACC_STUDENT_12,hard_negative,RING_L8_CAMPUS,campus_wifi,L8: Legitimate university students sharing campus Wi-Fi IP address; unique devices & PANs
+ACC_SYBIL_01,mule,RING_R4_SYBIL,sybil,"R4: Sybil cluster account sharing hardware device, forged PAN, and IP address"
+ACC_SYBIL_02,mule,RING_R4_SYBIL,sybil,"R4: Sybil cluster account sharing hardware device, forged PAN, and IP address"
+ACC_SYBIL_03,mule,RING_R4_SYBIL,sybil,"R4: Sybil cluster account sharing hardware device, forged PAN, and IP address"
+ACC_SYBIL_04,mule,RING_R4_SYBIL,sybil,"R4: Sybil cluster account sharing hardware device, forged PAN, and IP address"
+ACC_VICTIM_01,victim,RING_R5_SCAM_STORY,story,"R5: Senior citizen victim defrauded of ₹2,40,000 in digital arrest scam"
+ACC_VICTIM_CHAIN01,victim,RING_R2_PASSTHROUGH,passthrough,R2: Cyber fraud victim whose funds enter multi-hop layering chain
+ACC_VICTIM_FAN01,victim,RING_R1_FAN_IN_OUT,fan_in_out,"R1: Scam victim duped into transferring ₹81,000"
+ACC_VICTIM_FAN02,victim,RING_R1_FAN_IN_OUT,fan_in_out,"R1: Scam victim duped into transferring ₹81,000"
+ACC_VICTIM_FAN03,victim,RING_R1_FAN_IN_OUT,fan_in_out,"R1: Scam victim duped into transferring ₹81,000"
+ACC_VICTIM_FAN04,victim,RING_R1_FAN_IN_OUT,fan_in_out,"R1: Scam victim duped into transferring ₹81,000"
+ACC_VICTIM_FAN05,victim,RING_R1_FAN_IN_OUT,fan_in_out,"R1: Scam victim duped into transferring ₹81,000"
+ACC_WEDDING_01,hard_negative,RING_L3_WEDDING,wedding,"L3: Legitimate wedding gift aggregator (retains high balance, no rapid drain)"
